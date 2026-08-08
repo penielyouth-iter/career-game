@@ -30,3 +30,10 @@ export function normalizePositiveEffects(effects: Effects | undefined, fallback:
     money: Math.max(0, clampEffectValue("money", effects?.money ?? fallback.money)),
   };
 }
+
+export function normalizePositiveRuleEffects(effects: Effects | undefined, fallback: Record<StatKey, number>): Record<StatKey, number> {
+  return {
+    experience: Math.max(0, Math.floor(Number(effects?.experience ?? fallback.experience) || 0)),
+    money: Math.max(0, Math.floor(Number(effects?.money ?? fallback.money) || 0)),
+  };
+}

@@ -1,6 +1,6 @@
 import { doc, getDoc, onSnapshot, serverTimestamp, setDoc, type Unsubscribe } from "firebase/firestore";
 import { defaultConfig, newGame, playerSlots } from "@/lib/game-data";
-import { clampEffectValue, normalizeEffects, normalizePositiveEffects } from "@/lib/effect-rules";
+import { normalizeEffects, normalizePositiveRuleEffects } from "@/lib/effect-rules";
 import type { Card, CharacterConfig, Effects, GameConfig, GameState, PlayerState, StatKey } from "@/lib/types";
 import { firebaseCollectionId, firebaseDb } from "@/lib/firebase-client";
 
@@ -80,7 +80,7 @@ function normalizeStageThresholds(input: unknown): number[] {
 function normalizeRules(raw: Partial<GameConfig>): GameConfig["rules"] {
   return {
     stageThresholds: normalizeStageThresholds(raw.rules?.stageThresholds),
-    startReward: normalizePositiveEffects(raw.rules?.startReward, defaultConfig.rules.startReward),
+    startReward: normalizePositiveRuleEffects(raw.rules?.startReward, defaultConfig.rules.startReward),
     startingMoney: Math.max(0, Math.floor(Number(raw.rules?.startingMoney ?? defaultConfig.rules.startingMoney) || 0)),
   };
 }
