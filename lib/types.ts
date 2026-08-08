@@ -2,7 +2,7 @@ export type StatKey = "experience" | "money";
 export type Effects = Partial<Record<StatKey, number>>;
 export type ResolutionOption = { label: string; effects: Effects; resultDescription?:string };
 export type CharacterConfig = {
-  id:string; name:string; job:string; instrument:string; icon:string; color:string;
+  id:string; name:string; job:string; icon:string; color:string;
   titles:string[]; stageIntros:string[]; initial:Record<StatKey,number>; milestones:string[]; cards:Card[];
 };
 export type Card = {
@@ -14,12 +14,13 @@ export type Card = {
 };
 export type BoardCell = {
   id:number; type:string; label:string; icon:string; description:string;
-  effects?:Effects; skip?:number; choice?:"overtime"|"class"; startRewards?:Record<string,number>;
+  effects?:Effects; skip?:number; move?:number; choice?:"overtime"|"class"|"charity";
 };
-export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[] };
+export type GameRules = { stageThresholds:number[]; startReward:Record<StatKey,number>; startingMoney:number };
+export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[]; rules:GameRules };
 export type PlayerState = {
   characterId:string; portraitId?:string; position:number; stage:number; stats:Record<StatKey,number>;
-  skipTurns:number; finishedAt:number|null; decks:Record<string,string[]>; stageIntroSeen:number[];
+  skipTurns:number; finishedAt:number|null; finishRank?:number; decks:Record<string,string[]>; stageIntroSeen:number[];
 };
 export type GameState = {
   started:boolean; turnOrder:string[]; turnIndex:number; round:number; accelerated:boolean;
