@@ -4,6 +4,8 @@ import { gotoCards } from "./goto-cards";
 import { zhangCards } from "./zhang-cards";
 import { rubioCards } from "./rubio-cards";
 import { esportsCards } from "./esports-cards";
+import { dongCards } from "./dong-cards";
+import { astronautCards, baristaCards, chickenBossCards, doctorCards, hotelBossCards, teacherCards } from "./extra-role-cards";
 
 const stats=(experience:number,money:number)=>({experience,money});
 const careerTitles={
@@ -12,6 +14,13 @@ const careerTitles={
  zhang:["想開店的新手","學著帶團隊的老闆","做出好產品的老闆","幫助大家的企業家"],
  rubio:["學習關心人的新手","陪伴大家的幫手","帶領活動的牧師","幫人找到希望的老師"],
  esports:["校園遊戲高手","青訓練習生","戰隊先發隊員","世界冠軍隊長"],
+ dong:["學習照顧生命的新手","診所裡的新人獸醫","能判斷狀況的獸醫","用專業幫助生命的獸醫"],
+ doctor:["學習照顧人的新手","醫院裡的新人醫生","能判斷狀況的醫生","用醫術幫助人的醫生"],
+ barista:["認識咖啡的新手","咖啡店新人","做出招牌飲品的咖啡師","分享溫暖的咖啡師"],
+ teacher:["學習教人的新手","教室裡的新人老師","會設計課程的老師","幫孩子找到信心的老師"],
+ astronaut:["仰望星空的新手","太空訓練新人","能執行任務的太空人","分享夢想的太空人"],
+ chickenboss:["學做鹹酥雞的新手","攤位裡的新人助手","做出招牌味的老闆","用熱食幫助人的老闆"],
+ hotelboss:["學習服務的新手","飯店櫃台新人","會帶團隊的飯店人","提供溫暖住處的老闆"],
 };
 const stageIntros={
  goto:[
@@ -44,6 +53,48 @@ const stageIntros={
   "🏆 小明成為戰隊先發，面對正式比賽、粉絲和壓力，也更重視團隊合作。",
   "🌍 小明成為有影響力的冠軍隊長，想把健康電競和互相尊重的精神分享給更多孩子。",
  ],
+ dong:[
+  "🩺 董悟元第一次在學校和診所見習中接觸獸醫工作，發現照顧生命需要溫柔、耐心和仔細觀察。",
+  "🏥 悟元進入獸醫診所成為新人，從量體重、整理病歷、安撫小病人開始學習真正的看診日常。",
+  "🔎 悟元累積更多經驗後，開始協助判斷複雜狀況，也學著和醫療團隊、家屬好好溝通。",
+  "🤝 悟元成為可靠的獸醫專家，想把專業用在義診、教育和陪伴上，幫助更多生命被好好照顧。",
+ ],
+ doctor:[
+  "🩺 伊書豪第一次學到健康和醫療知識，發現照顧人不只要聰明，也要細心和溫柔。",
+  "🏥 伊書豪進入醫院成為新人，從量血壓、寫病歷、陪病人放鬆開始學習看診日常。",
+  "🔎 伊書豪累積更多經驗後，開始協助判斷複雜狀況，也學著和團隊、病人好好溝通。",
+  "🤝 伊書豪成為可靠的醫生，想把醫術用在義診、健康教育和陪伴上，幫助更多人。",
+ ],
+ barista:[
+  "☕ 卡非湘第一次學咖啡，發現一杯飲料裡有香味、溫度、比例和服務的心。",
+  "🏪 卡非湘進入咖啡店成為新人，從接單、出杯、整理吧台開始學習工作節奏。",
+  "🍵 卡非湘能做出穩定飲品，也開始設計招牌口味，學著和團隊一起服務客人。",
+  "💛 卡非湘成為溫暖的咖啡師，想用一杯飲品和一個笑容，讓人得到休息和鼓勵。",
+ ],
+ teacher:[
+  "📚 紫念從幫同學講題目開始，發現自己很喜歡把事情說清楚，也喜歡陪人學會。",
+  "🏫 紫念成為新人老師，開始學習備課、帶班、陪學生練習，也慢慢找到自己的教學方式。",
+  "🧩 紫念能設計更有趣的課程，也學著和家長、同事一起幫助學生成長。",
+  "🌱 紫念成為成熟老師，想用教學和陪伴，幫孩子找到信心，也把學習變成祝福。",
+ ],
+ astronaut:[
+  "🚀 阿姆斯第一次認識太空任務，發現飛向宇宙需要科學、團隊和勇敢的心。",
+  "🧑‍🚀 阿姆斯進入太空訓練，從安全檢查、體能訓練和通訊練習開始累積能力。",
+  "🛰️ 阿姆斯能參與模擬任務，也開始判讀資料、和隊友合作面對壓力。",
+  "🌍 阿姆斯成為成熟太空人，想把探索精神和科學夢想分享給更多孩子。",
+ ],
+ chickenboss:[
+  "🍗 小佑第一次學做鹹酥雞，發現好吃的食物需要乾淨、火候、調味和用心服務。",
+  "🧺 小佑開始在攤位工作，學著接單、找錢、包餐，也慢慢適應忙碌的夜市節奏。",
+  "🔥 小佑做出受歡迎的招牌口味，開始學習品牌、分工和穩定品質。",
+  "🤲 小佑成為可靠老闆，想用熱騰騰的食物照顧人，也把攤位變成溫暖的地方。",
+ ],
+ hotelboss:[
+  "🏨 韓畢婁第一次接觸飯店服務，發現整齊房間和親切問候會讓人感到安心。",
+  "🛎️ 韓畢婁成為飯店新人，從櫃台接待、確認訂房和回應客人需要開始練習。",
+  "🧳 韓畢婁能安排團隊合作，讓房務、餐廳和櫃台一起提供更好的住宿體驗。",
+  "🏡 韓畢婁成為飯店老闆，想讓旅人有地方休息，也幫助需要短暫安身的人。",
+ ],
 };
 const milestones=(job:string)=>[
  `累積 100 經驗值，進入第二階段！`,
@@ -62,6 +113,13 @@ const characterShells:Omit<CharacterConfig,"cards">[]=[
   "累積 400 經驗值，準備挑戰世界大賽！",
   "累積 600 經驗值，成為會鼓勵人的世界冠軍隊長！",
  ]},
+ {id:"dong",name:"董悟元",job:"獸醫",icon:"🩺",color:"#4fc3a1",initial:stats(0,100),titles:careerTitles.dong,stageIntros:stageIntros.dong,milestones:milestones("獸醫")},
+ {id:"doctor",name:"伊書豪",job:"醫生",icon:"🩺",color:"#4aa3ff",initial:stats(0,100),titles:careerTitles.doctor,stageIntros:stageIntros.doctor,milestones:milestones("醫生")},
+ {id:"barista",name:"卡非湘",job:"咖啡師",icon:"☕",color:"#b77a48",initial:stats(0,100),titles:careerTitles.barista,stageIntros:stageIntros.barista,milestones:milestones("咖啡師")},
+ {id:"teacher",name:"紫念",job:"老師",icon:"📚",color:"#a77cff",initial:stats(0,100),titles:careerTitles.teacher,stageIntros:stageIntros.teacher,milestones:milestones("老師")},
+ {id:"astronaut",name:"阿姆斯",job:"太空人",icon:"🚀",color:"#5d7cff",initial:stats(0,100),titles:careerTitles.astronaut,stageIntros:stageIntros.astronaut,milestones:milestones("太空人")},
+ {id:"chickenboss",name:"小佑",job:"鹹酥雞老闆",icon:"🍗",color:"#f59f38",initial:stats(0,100),titles:careerTitles.chickenboss,stageIntros:stageIntros.chickenboss,milestones:milestones("鹹酥雞老闆")},
+ {id:"hotelboss",name:"韓畢婁",job:"飯店老闆",icon:"🏨",color:"#36b6c9",initial:stats(0,100),titles:careerTitles.hotelboss,stageIntros:stageIntros.hotelboss,milestones:milestones("飯店老闆")},
 ];
 const cells:BoardCell[]=[
  {id:0,type:"start",label:"起點",icon:"🎓",description:"回到出發點，整理這一圈學到的事，獲得通過起點獎勵。"},
@@ -85,7 +143,7 @@ const cells:BoardCell[]=[
  {id:18,type:"part-time",label:"打零工",icon:"🧹",description:"幫忙完成一份短工作，靠自己的努力賺到一些收入，金錢 +50。",effects:{money:50}},
  {id:19,type:"support",label:"收到補給",icon:"💌",description:"有人支持你買需要的用品，讓你可以繼續前進，金錢 +30。",effects:{money:30}},
 ];
-const cards=[...zoeyCards,...gotoCards,...zhangCards,...rubioCards,...esportsCards].filter(card=>card.contentStage<=4);
+const cards=[...zoeyCards,...gotoCards,...zhangCards,...rubioCards,...esportsCards,...dongCards,...doctorCards,...baristaCards,...teacherCards,...astronautCards,...chickenBossCards,...hotelBossCards].filter(card=>card.contentStage<=4);
 const characters:CharacterConfig[]=characterShells.map(character=>({
  ...character,
  cards:cards.filter(card=>card.characterId===character.id),

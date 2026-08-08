@@ -108,7 +108,12 @@ function normalizeCells(raw: Partial<GameConfig>): GameConfig["cells"] {
 
 export function normalizeConfig(input: unknown): GameConfig {
   const raw = (input && typeof input === "object" ? input : defaultConfig) as GameConfig;
-  const characters = (raw.characters?.length ? raw.characters : defaultConfig.characters).map(normalizeCharacter);
+  const sourceCharacters = raw.characters?.length ? raw.characters : defaultConfig.characters;
+  const sourceIds = new Set(sourceCharacters.map((character) => character.id));
+  const characters = [
+    ...sourceCharacters.map(normalizeCharacter),
+    ...defaultConfig.characters.filter((character) => !sourceIds.has(character.id)).map(normalizeCharacter),
+  ];
   return {
     ...defaultConfig,
     ...raw,
