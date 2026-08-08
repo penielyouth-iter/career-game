@@ -14,7 +14,7 @@ export type Card = {
 };
 export type BoardCell = {
   id:number; type:string; label:string; icon:string; description:string;
-  effects?:Effects; skip?:number; move?:number; choice?:"overtime"|"class"|"charity";
+  effects?:Effects; skip?:number; move?:number; choice?:"charity";
 };
 export type GameRules = { stageThresholds:number[]; startReward:Record<StatKey,number>; startingMoney:number };
 export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[]; rules:GameRules };
