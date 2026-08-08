@@ -132,15 +132,15 @@ const cells:BoardCell[]=[
  {id:7,type:"sick",label:"狀態低迷",icon:"🤒",description:"最近太累了，身體和心情都需要休息一下；下回合輪到你時暫停一次。",skip:1},
  {id:8,type:"destiny",label:"命運",icon:"🌙",description:"職涯路上不一定都順利，抽一張命運卡，看看這次要學會什麼。"},
  {id:9,type:"lottery",label:"意外收入",icon:"🎟️",description:"你剛好得到一筆小收入，可能是獎金、紅包或額外補助，金錢 +50。",effects:{money:50}},
- {id:10,type:"fellowship",label:"團隊支持",icon:"⛪",description:"團隊給你溫暖支持，讓你重新有力量；不過也需要停下來整理心情，下回合暫停一次，經驗值 +30。",effects:{experience:30},skip:1},
+ {id:10,type:"support",label:"團隊打氣",icon:"⛪",description:"夥伴們看見你最近很努力，主動幫你打氣，也一起想出下一步做法，經驗值 +30。",effects:{experience:30}},
  {id:11,type:"phone",label:"分心拖延",icon:"📱",description:"你滑手機太久，原本要做的事被拖慢了，需要重新找回專心，經驗值 -20。",effects:{experience:-20}},
  {id:12,type:"chance",label:"機會",icon:"✨",description:"又到了機會時刻，抽一張符合目前角色階段的機會卡。"},
- {id:13,type:"class",label:"上課進修",icon:"🧑‍🏫",description:"你報名一堂實用課程，花一些錢學到新的方法，幫助自己更進步。"},
+ {id:13,type:"class",label:"上課進修",icon:"🧑‍🏫",description:"你報名一堂實用課程，花一點金幣買教材，也學到能立刻用上的新方法，經驗值 +30、金錢 -30。",effects:{experience:30,money:-30}},
  {id:14,type:"destiny",label:"命運",icon:"🌙",description:"出現一個小挑戰，抽命運卡，看看你要怎麼面對和成長。"},
  {id:15,type:"church",label:"教會",icon:"🕊️",description:"你收到溫暖的鼓勵，心裡重新有力量，也更知道下一步方向，經驗值 +30。",effects:{experience:30}},
  {id:16,type:"outing",label:"家人朋友時光",icon:"🧺",description:"你和家人朋友好好聊天，放鬆心情，也整理自己的想法，經驗值 +20。",effects:{experience:20}},
  {id:17,type:"fall",label:"挫折受傷",icon:"🩹",description:"你遇到一個小挫折，需要花時間調整，也花了一些錢處理問題，經驗值 -20、金錢 -50。",effects:{experience:-20,money:-50}},
- {id:18,type:"overtime",label:"加班邀請",icon:"🌃",description:"你收到額外工作邀請，可以用更多時間完成任務，換來一些收入和練習機會。"},
+ {id:18,type:"parttime",label:"打零工",icon:"🧾",description:"你接到一份短短的幫忙工作，認真完成後得到一筆小收入，金錢 +50。",effects:{money:50}},
  {id:19,type:"quarrel",label:"合作衝突",icon:"⚡",description:"合作時大家想法不同，溝通一時卡住，需要重新聽彼此說話，經驗值 -20。",effects:{experience:-20}},
 ];
 const cards=[...zoeyCards,...gotoCards,...zhangCards,...rubioCards,...esportsCards,...dongCards,...doctorCards,...baristaCards,...teacherCards,...astronautCards,...chickenBossCards,...hotelBossCards].filter(card=>card.contentStage<=4);

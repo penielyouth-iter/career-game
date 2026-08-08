@@ -239,6 +239,6 @@
 .board-stage .board-cell{justify-content:center;gap:7px;padding:12px 8px 22px;overflow:visible}
 .board-stage .board-cell .cell-icon{font-size:31px;margin:0;line-height:1}
 .board-stage .board-cell b{font-size:18px;line-height:1.18;font-weight:1000;color:var(--ink)}
-.board-stage .board-cell.start,.board-stage .board-cell.church,.board-stage .board-cell.support{background:#e9fff2}.board-stage .board-cell.study,.board-stage .board-cell.exercise,.board-stage .board-cell.lottery,.board-stage .board-cell.part-time{background:#fff5c9}
+.board-stage .board-cell.start,.board-stage .board-cell.church,.board-stage .board-cell.support{background:#e9fff2}.board-stage .board-cell.study,.board-stage .board-cell.class,.board-stage .board-cell.exercise,.board-stage .board-cell.lottery,.board-stage .board-cell.part-time,.board-stage .board-cell.parttime{background:#fff5c9}
 .board-stage .board-cell.sick,.board-stage .board-cell.phone,.board-stage .board-cell.fall{background:#fff0e8}.board-stage .board-cell.charity{background:#eefbf4}
 @media(max-width:1050px){.board-stage .board-cell .cell-icon{font-size:28px}.board-stage .board-cell b{font-size:16px}}

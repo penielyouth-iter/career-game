@@ -84,14 +84,13 @@
   },
   {
     "id": 10,
-    "type": "fellowship",
-    "label": "團隊支持",
+    "type": "support",
+    "label": "團隊打氣",
     "icon": "⛪",
-    "description": "團隊給你溫暖支持，讓你重新有力量；不過也需要停下來整理心情，下回合暫停一次，經驗值 +30。",
+    "description": "夥伴們看見你最近很努力，主動幫你打氣，也一起想出下一步做法，經驗值 +30。",
     "effects": {
       "experience": 30
-    },
-    "skip": 1
+    }
   },
   {
     "id": 11,
@@ -115,7 +114,11 @@
     "type": "class",
     "label": "上課進修",
     "icon": "🧑‍🏫",
-    "description": "你報名一堂實用課程，花一些錢學到新的方法，幫助自己更進步。"
+    "description": "你報名一堂實用課程，花一點金幣買教材，也學到能立刻用上的新方法，經驗值 +30、金錢 -30。",
+    "effects": {
+      "experience": 30,
+      "money": -30
+    }
   },
   {
     "id": 14,
@@ -157,10 +160,13 @@
   },
   {
     "id": 18,
-    "type": "overtime",
-    "label": "加班邀請",
-    "icon": "🌃",
-    "description": "你收到額外工作邀請，可以用更多時間完成任務，換來一些收入和練習機會。"
+    "type": "parttime",
+    "label": "打零工",
+    "icon": "🧾",
+    "description": "你接到一份短短的幫忙工作，認真完成後得到一筆小收入，金錢 +50。",
+    "effects": {
+      "money": 50
+    }
   },
   {
     "id": 19,
