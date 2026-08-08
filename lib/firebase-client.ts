@@ -14,6 +14,14 @@ const firebaseConfig = {
   measurementId: env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
+const rawDataset = env.VITE_FIREBASE_DATASET || (env.DEV ? "dev" : "prod");
+
+export const firebaseDataset = String(rawDataset).toLowerCase().replace(/[^a-z0-9-]/g, "-") || "prod";
+
+export function firebaseCollectionId() {
+  return firebaseDataset === "prod" ? "career-game" : `career-game-${firebaseDataset}`;
+}
+
 function missingKeys() {
   return Object.entries(firebaseConfig)
     .filter(([key, value]) => key !== "measurementId" && !value)

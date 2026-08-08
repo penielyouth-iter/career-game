@@ -47,11 +47,22 @@ service cloud.firestore {
     match /career-game/game {
       allow read, write: if true;
     }
+
+    match /career-game-dev/config {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    match /career-game-dev/game {
+      allow read, write: if true;
+    }
   }
 }
 ```
 
-如果你不想讓學生也能直接寫入本局進度，需要改成由主持人操作遊戲，或再加一層 callable backend；目前這版是為了 GitHub Pages 靜態網站，前台遊戲會直接寫入 `career-game/game`。
+本機 `npm run dev` 預設使用 `career-game-dev/config` 與 `career-game-dev/game`，GitHub Pages 正式版預設使用 `career-game/config` 與 `career-game/game`，所以測試進度不會影響正式頁面。如果需要指定其他資料環境，可以設定 `VITE_FIREBASE_DATASET`；例如 `VITE_FIREBASE_DATASET=qa` 會使用 `career-game-qa`。
+
+如果你不想讓學生也能直接寫入本局進度，需要改成由主持人操作遊戲，或再加一層 callable backend；目前這版是為了 GitHub Pages 靜態網站，前台遊戲會直接寫入目前環境的 `game` 文件。
 
 ## GitHub Pages 部署
 

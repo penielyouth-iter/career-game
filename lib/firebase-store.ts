@@ -2,10 +2,11 @@ import { doc, getDoc, onSnapshot, serverTimestamp, setDoc, type Unsubscribe } fr
 import { defaultConfig, newGame, playerSlots } from "@/lib/game-data";
 import { clampEffectValue, normalizeEffects, normalizePositiveEffects } from "@/lib/effect-rules";
 import type { Card, CharacterConfig, Effects, GameConfig, GameState, PlayerState, StatKey } from "@/lib/types";
-import { firebaseDb } from "@/lib/firebase-client";
+import { firebaseCollectionId, firebaseDb } from "@/lib/firebase-client";
 
-const CONFIG_PATH = ["career-game", "config"] as const;
-const GAME_PATH = ["career-game", "game"] as const;
+const FIREBASE_COLLECTION = firebaseCollectionId();
+const CONFIG_PATH = [FIREBASE_COLLECTION, "config"] as const;
+const GAME_PATH = [FIREBASE_COLLECTION, "game"] as const;
 const statKeys: StatKey[] = ["experience", "money"];
 const legacyCellDescriptions = new Set([
   "路過時獲得全體相同的經驗值與金錢",
