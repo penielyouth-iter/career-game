@@ -7,23 +7,23 @@ import { esportsCards } from "./esports-cards";
 
 const stats=(experience:number,money:number)=>({experience,money});
 const careerTitles={
- goto:["職涯探索者","專業養成者","代表作實踐者","使命大師"],
- zoey:["舞台探索者","練習養成者","代表作歌手","使命創作人"],
+ goto:["認識程式的新手","努力練習的工程師","做出作品的高手","幫助大家的大師"],
+ zoey:["第一次上台的新手","努力練習的偶像","有代表歌的歌手","用歌幫助大家的人"],
  zhang:["想開店的新手","學著帶團隊的老闆","做出好產品的老闆","幫助大家的企業家"],
  rubio:["學習關心人的新手","陪伴大家的幫手","帶領活動的牧師","幫人找到希望的老師"],
  esports:["校園遊戲高手","青訓練習生","戰隊先發隊員","世界冠軍隊長"],
 };
-const milestones=[
- "累積 100 經驗值，進入第二階段。",
- "累積 200 經驗值，進入第三階段。",
- "累積 300 經驗值，進入第四階段。",
- "累積 400 經驗值，完成職涯旅程。",
+const milestones=(job:string)=>[
+ `累積 100 經驗值，進入第二階段！`,
+ `累積 200 經驗值，進入第三階段！`,
+ `累積 300 經驗值，進入第四階段！`,
+ `累積 400 經驗值，完成${job}旅程！`,
 ];
 const characterShells:Omit<CharacterConfig,"cards">[]=[
- {id:"goto",name:"後藤一豪",job:"工程師",instrument:"KB手",icon:"🎹",color:"#72c7ff",initial:stats(0,500),titles:careerTitles.goto,milestones},
- {id:"zoey",name:"Zoey",job:"偶像",instrument:"主唱",icon:"🎤",color:"#ff7eb6",initial:stats(0,300),titles:careerTitles.zoey,milestones},
- {id:"zhang",name:"張玉曼",job:"企業家",instrument:"鼓手",icon:"🥁",color:"#ffb65b",initial:stats(0,100),titles:careerTitles.zhang,milestones},
- {id:"rubio",name:"盧比歐",job:"牧師",instrument:"吉他手",icon:"🎸",color:"#8bd48b",initial:stats(0,300),titles:careerTitles.rubio,milestones},
+ {id:"goto",name:"後藤一豪",job:"工程師",instrument:"鍵盤手",icon:"🎹",color:"#72c7ff",initial:stats(0,500),titles:careerTitles.goto,milestones:milestones("工程師")},
+ {id:"zoey",name:"Zoey",job:"偶像",instrument:"主唱",icon:"🎤",color:"#ff7eb6",initial:stats(0,300),titles:careerTitles.zoey,milestones:milestones("偶像")},
+ {id:"zhang",name:"張玉曼",job:"企業家",instrument:"鼓手",icon:"🥁",color:"#ffb65b",initial:stats(0,100),titles:careerTitles.zhang,milestones:milestones("企業家")},
+ {id:"rubio",name:"盧比歐",job:"牧師",instrument:"吉他手",icon:"🎸",color:"#8bd48b",initial:stats(0,300),titles:careerTitles.rubio,milestones:milestones("牧師")},
  {id:"esports",name:"小明",job:"電競選手",instrument:"滑鼠手",icon:"🕹️",color:"#7c8cff",initial:stats(0,300),titles:careerTitles.esports,milestones:[
   "累積 100 經驗值，進入青訓練習生階段！",
   "累積 200 經驗值，成為戰隊先發隊員！",
@@ -93,7 +93,7 @@ export const playerSlots=[
  {id:"player-4",portraitId:"rubio",label:"玩家 4"},
 ];
 export const defaultConfig:GameConfig={
- dataRevision:14,
+ dataRevision:15,
  title:"守護天使的生涯大冒險",
  story:"四組守護天使陪伴主角累積經驗值與金錢，走過四個職涯階段，成為帶著使命前進的專業人士。",
  characters,cells

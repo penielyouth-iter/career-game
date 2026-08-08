@@ -1,52 +1,427 @@
-﻿import type { Card, Effects } from "./types";
-
-const auto=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,effects:Effects={},instruction?:string):Card=>({
- id:`goto-${type}-${stage}-${index}`,characterId:"goto",contentStage:stage,type,title,description,effects,instruction,resolutionMode:"automatic"
-});
-const task=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,instruction:string,successEffects:Effects,failureEffects:Effects,successLabel="挑戰成功",failureLabel="挑戰失敗"):Card=>({
- id:`goto-${type}-${stage}-${index}`,characterId:"goto",contentStage:stage,type,title,description,instruction,resolutionMode:"task",task:true,successEffects,failureEffects,successLabel,failureLabel
-});
-const choice=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,aLabel:string,aEffects:Effects,bLabel:string,bEffects:Effects):Card=>({
- id:`goto-${type}-${stage}-${index}`,characterId:"goto",contentStage:stage,type,title,description,resolutionMode:"choice",optionA:{label:aLabel,effects:aEffects},optionB:{label:bLabel,effects:bEffects}
-});
+import type { Card } from "./types";
 
 export const gotoCards:Card[]=[
- auto(1,"chance",1,"Stack Overflow/ AI 大神顯靈","困擾你一整週的程式碼漏洞，竟然在論壇找到一模一樣的解答！",{experience:40}),
- auto(1,"chance",2,"綠色乖乖的加持","在機房與筆電上放了包綠色奶油椰子乖乖，程式居然順暢一次 Compile 通過！",{experience:20,money:100}),
- task(1,"chance",3,"黑客松獲獎","參加黑客松並向評審展示團隊的創意與合作。","全組成員要在 15 秒內，用身體排出「AI」兩個英文字母。",{experience:20,money:300},{}),
- auto(1,"chance",4,"得到學長的面試考古題","拿到頂尖科技公司的演算法考古題，面試準備事半功倍。",{experience:40}),
- auto(1,"destiny",1,"忘記存檔悲劇","寫了一整夜的畢業專題，宿舍突然跳電且沒開自動儲存……",{experience:-40}),
- auto(1,"destiny",2,"白板面試慘遭毒打","面試官叫你手寫快速排序法（Quick Sort），你緊張到大腦一片空白。",{experience:-40}),
- auto(1,"destiny",3,"買線上課程沒看","買了一堆線上程式課程想自我提升，結果只刷了第一集就放著生灰塵。",{money:-100}),
- task(1,"destiny",4,"專題組隊隊友躺平","遭遇豬隊友，專案壓力全落到你身上。","全組成員做 10 個開合跳，幫主角分擔專案壓力。",{}, {experience:-40},"完成分擔","未完成"),
-
- auto(2,"chance",1,"Copilot AI 寫 Code 神器","公司幫你開通了 AI 寫程式工具，工作產出效率瞬間翻倍！",{experience:60}),
- auto(2,"chance",2,"遇到天使資深工程師（Senior）","遇到神級 Senior 帶領，耐心地幫你 Code Review 並指出致命錯誤。",{experience:60}),
- auto(2,"chance",3,"抓到遺留系統（Legacy Code）的大 Bug","幫公司解決了困擾半年的系統卡頓問題，獲得主管口頭表揚與獎金。",{experience:40,money:300}),
- auto(2,"chance",4,"下班前的咖啡提神","一杯咖啡讓大家在下班前恢復精神。",{experience:40},"小組成員在 10 秒內齊聲高喊：「一豪哥，請喝美式咖啡！」"),
- auto(2,"destiny",1,"半夜三點被 On-call 叫醒","伺服器告警響起，被迫從床上爬起來除錯（Debug）。",{experience:-60}),
- auto(2,"destiny",2,"PM 突然變更需求","產品經理（PM）說：「這個功能很簡單，明天上線應該沒問題吧？」",{experience:-40}),
- task(2,"destiny",3,"辦公室椅子太硬腰痠背痛","久坐工作讓腰背發出警訊。","全組組員起立做 5 秒伸展拉筋。",{}, {experience:-40},"完成伸展","未完成"),
- auto(2,"destiny",4,"誤刪測試環境資料庫","手滑執行了刪除指令，對系統架構不熟悉犯錯，請大家喝飲料賠罪。",{experience:-20,money:-200}),
-
- auto(3,"chance",1,"獨立開發爆款 App","主導開發的系統用戶突破百萬，獲得業界高度矚目。",{experience:60,money:500}),
- auto(3,"chance",2,"獲選為技術大會研討會講者","受邀在 Tech Summit 分享架構設計，技術實力獲業界認可。",{experience:60}),
- auto(3,"chance",3,"團隊攻堅成功獎勵","團隊一起完成高難度專案，公司發出獎勵。",{experience:20,money:300},"小組全體成員伸出手疊在一起，齊聲大喊：「衝向頂峰！」"),
- auto(3,"chance",4,"獲得公司員工認股選擇權（ESOP）","成為公司核心技術骨幹，拿到優渥的股權分紅。",{money:600}),
- auto(3,"destiny",1,"遭遇重大資安漏洞（Log4j 級別）","全球爆發資安危機，連續三天兩夜住在公司緊急修補。",{experience:-60}),
- auto(3,"destiny",2,"技術選型錯誤重新來過","評估失誤引進了不成熟的框架，三個月的努力必須砍掉重練。",{experience:-40,money:-200}),
- auto(3,"destiny",3,"競品低價殺價威脅","對手推出了免費的同款產品，專案盈利大幅縮水。",{money:-400}),
- task(3,"destiny",4,"團隊核心成員被高薪挖角","重要助手離職，團隊需要重新凝聚。","組員在 15 秒內手拉手圍成圓圈，幫主角集氣。",{experience:-20},{experience:-60},"完成集氣，負面效果減半","未完成"),
-
- auto(4,"chance",1,"熱音社老友的深夜熱湯","低谷中，老朋友帶來熱湯與陪伴。",{experience:60},"組員扮演熱音社老友，對主角說：「代碼是假的，兄弟是真的！」並拍拍肩。"),
- auto(4,"chance",2,"遇見信仰：體會人的價值非來自產出","在團契中明白自己的生命價值，不在於代碼寫得有多完美。",{experience:60}),
- auto(4,"chance",3,"開源社群（Open Source）暖心支援","全球開源技術者主動提供協助，幫忙釐清了底層資安 Bug。",{experience:60}),
- auto(4,"chance",4,"沉澱休假，重拾生活步調","給自己放了一個長假遠離螢幕，身體機能與心態大幅恢復。",{experience:60}),
- auto(4,"destiny",1,"系統大宕機造成天價虧損","雲端伺服器崩潰，公司資金大失血，高層逼你承擔責任。",{experience:-40,money:-500}),
- auto(4,"destiny",2,"嚴重的工程師職業病（眼疾／腰傷）","長期盯螢幕與坐姿不良，身體發出嚴重警訊，被迫就醫。",{experience:-60,money:-200}),
- task(4,"destiny",3,"陷入裁員風波與被 AI 取代迷思","面臨失業與被取代的焦慮。","全組組員在 10 秒內跟主角說：「一豪，你的溫度 AI 永遠做不到！」",{}, {experience:-60},"完成鼓勵","未完成"),
- auto(4,"destiny",4,"辦公室政治與背黑鍋","管理層將專案延誤歸咎於技術團隊，內部溝通陷入冰點。",{experience:-60}),
- auto(4,"chance",5,"創立「公益科技協會」","開發出幫助視障者與弱勢兒童學習的無障礙軟體，獲得社會大眾讚賞。",{experience:100}),
- auto(4,"chance",6,"撰寫科技與信仰暢銷書","出版《演算法與生命哲學》，版稅收入豐厚且受邀各界演講。",{experience:40,money:800})
+  {
+    id: "goto-chance-1-1",
+    characterId: "goto",
+    contentStage: 1,
+    type: "chance",
+    title: "網路和 AI 幫了大忙",
+    description: "你卡了好幾天的程式問題，竟然在網路上找到很像的解法！",
+    effects: {
+      experience: 40
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-1-2",
+    characterId: "goto",
+    contentStage: 1,
+    type: "chance",
+    title: "幸運小零食",
+    description: "你在電腦旁放了一包幸運零食，程式竟然一次就跑成功！",
+    effects: {
+      experience: 20,
+      money: 100
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-1-3",
+    characterId: "goto",
+    contentStage: 1,
+    type: "chance",
+    title: "程式比賽得獎",
+    description: "你參加程式創意比賽，和隊友一起做出有趣的作品。",
+    instruction: "全組成員要在 15 秒內，用身體排出「AI」兩個英文字母。",
+    resolutionMode: "task",
+    task: true,
+    successEffects: {
+      experience: 20,
+      money: 300
+    },
+    failureEffects: {},
+    successLabel: "挑戰成功",
+    failureLabel: "挑戰失敗"
+  },
+  {
+    id: "goto-chance-1-4",
+    characterId: "goto",
+    contentStage: 1,
+    type: "chance",
+    title: "學長分享準備祕訣",
+    description: "學長告訴你面試常考的題目，讓你準備得更有方向。",
+    effects: {
+      experience: 40
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-1-1",
+    characterId: "goto",
+    contentStage: 1,
+    type: "destiny",
+    title: "忘記存檔了",
+    description: "你寫了好久的作業，突然停電，結果忘記存檔了……",
+    effects: {
+      experience: -40
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-1-2",
+    characterId: "goto",
+    contentStage: 1,
+    type: "destiny",
+    title: "面試時太緊張",
+    description: "面試官請你在白板上解題，你一緊張，腦袋突然空白。",
+    effects: {
+      experience: -40
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-1-3",
+    characterId: "goto",
+    contentStage: 1,
+    type: "destiny",
+    title: "買了課卻沒看完",
+    description: "你買了線上課想學程式，結果只看第一集就忘記繼續了。",
+    effects: {
+      money: -100
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-1-4",
+    characterId: "goto",
+    contentStage: 1,
+    type: "destiny",
+    title: "隊友沒有一起努力",
+    description: "小組作業快到期限了，有隊友沒有完成自己的部分，壓力變大了。",
+    instruction: "全組成員做 10 個開合跳，幫主角一起分擔壓力。",
+    resolutionMode: "task",
+    task: true,
+    successEffects: {},
+    failureEffects: {
+      experience: -40
+    },
+    successLabel: "一起完成",
+    failureLabel: "未完成"
+  },
+  {
+    id: "goto-chance-2-1",
+    characterId: "goto",
+    contentStage: 2,
+    type: "chance",
+    title: "AI 小幫手來了",
+    description: "公司給你一個 AI 寫程式工具，讓你更快找到寫程式的方向！",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-2-2",
+    characterId: "goto",
+    contentStage: 2,
+    type: "chance",
+    title: "遇到很棒的前輩",
+    description: "有一位很有經驗的工程師耐心教你，幫你找出程式裡的大問題。",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-2-3",
+    characterId: "goto",
+    contentStage: 2,
+    type: "chance",
+    title: "抓到老系統的大問題",
+    description: "你幫公司解決電腦系統一直卡住的問題，主管稱讚你，還給你獎金。",
+    effects: {
+      experience: 40,
+      money: 300
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-2-4",
+    characterId: "goto",
+    contentStage: 2,
+    type: "chance",
+    title: "下班前補充精神",
+    description: "大家有點累了，一杯飲料讓大家重新打起精神。",
+    effects: {
+      experience: 40
+    },
+    instruction: "小組成員在 10 秒內齊聲高喊：「一豪哥，加油！喝杯飲料休息一下！」",
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-2-1",
+    characterId: "goto",
+    contentStage: 2,
+    type: "destiny",
+    title: "半夜被電話叫醒",
+    description: "公司的電腦系統突然出問題，你只好從床上爬起來修理。",
+    effects: {
+      experience: -60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-2-2",
+    characterId: "goto",
+    contentStage: 2,
+    type: "destiny",
+    title: "主管突然改主意",
+    description: "主管突然說：「這個功能再改一下，明天可以完成吧？」你覺得壓力很大。",
+    effects: {
+      experience: -40
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-2-3",
+    characterId: "goto",
+    contentStage: 2,
+    type: "destiny",
+    title: "坐太久腰痠背痛",
+    description: "你坐在電腦前太久，腰和背都開始不舒服。",
+    instruction: "全組組員起立做 5 秒伸展拉筋。",
+    resolutionMode: "task",
+    task: true,
+    successEffects: {},
+    failureEffects: {
+      experience: -40
+    },
+    successLabel: "完成伸展",
+    failureLabel: "未完成"
+  },
+  {
+    id: "goto-destiny-2-4",
+    characterId: "goto",
+    contentStage: 2,
+    type: "destiny",
+    title: "不小心刪錯資料",
+    description: "你按錯按鈕，把測試用的資料刪掉了，只好請大家喝飲料道歉。",
+    effects: {
+      experience: -20,
+      money: -200
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-3-1",
+    characterId: "goto",
+    contentStage: 3,
+    type: "chance",
+    title: "做出受歡迎的手機程式",
+    description: "你做的手機程式很多人喜歡使用，大家都開始注意到你的作品。",
+    effects: {
+      experience: 60,
+      money: 500
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-3-2",
+    characterId: "goto",
+    contentStage: 3,
+    type: "chance",
+    title: "被邀請上台分享",
+    description: "你被邀請到活動上分享做程式的經驗，很多人覺得你很厲害。",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-3-3",
+    characterId: "goto",
+    contentStage: 3,
+    type: "chance",
+    title: "團隊完成困難任務",
+    description: "你和團隊一起完成很難的工作，公司給大家獎勵。",
+    effects: {
+      experience: 20,
+      money: 300
+    },
+    instruction: "小組全體成員伸出手疊在一起，齊聲大喊：「衝向頂峰！」",
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-3-4",
+    characterId: "goto",
+    contentStage: 3,
+    type: "chance",
+    title: "公司給你特別獎金",
+    description: "因為你成為團隊中很重要的人，公司給你一筆特別獎金。",
+    effects: {
+      money: 600
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-3-1",
+    characterId: "goto",
+    contentStage: 3,
+    type: "destiny",
+    title: "遇到很大的安全問題",
+    description: "公司的系統被發現有安全漏洞，大家連續加班努力修好。",
+    effects: {
+      experience: -60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-3-2",
+    characterId: "goto",
+    contentStage: 3,
+    type: "destiny",
+    title: "選錯工具要重做",
+    description: "一開始選的工具不好用，之前做的很多東西只好重新再做一次。",
+    effects: {
+      experience: -40,
+      money: -200
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-3-3",
+    characterId: "goto",
+    contentStage: 3,
+    type: "destiny",
+    title: "別家公司也做出類似產品",
+    description: "別家公司推出很像的產品，而且價格更便宜，你的作品賺到的錢變少了。",
+    effects: {
+      money: -400
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-3-4",
+    characterId: "goto",
+    contentStage: 3,
+    type: "destiny",
+    title: "重要隊友離開了",
+    description: "一位很重要的隊友離開團隊，大家需要重新合作起來。",
+    instruction: "組員在 15 秒內手拉手圍成圓圈，幫主角集氣。",
+    resolutionMode: "task",
+    task: true,
+    successEffects: {
+      experience: -20
+    },
+    failureEffects: {
+      experience: -60
+    },
+    successLabel: "完成集氣，損失變少",
+    failureLabel: "未完成"
+  },
+  {
+    id: "goto-chance-4-1",
+    characterId: "goto",
+    contentStage: 4,
+    type: "chance",
+    title: "老朋友帶來熱湯",
+    description: "你心情低落的時候，老朋友帶來熱湯陪你聊天。",
+    effects: {
+      experience: 60
+    },
+    instruction: "組員扮演老朋友，對主角說：「程式很難，但朋友會陪你！」並拍拍肩。",
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-4-2",
+    characterId: "goto",
+    contentStage: 4,
+    type: "chance",
+    title: "知道自己很寶貴",
+    description: "你慢慢明白：人的價值不是只有工作做得好不好，每個人本來就很寶貴。",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-4-3",
+    characterId: "goto",
+    contentStage: 4,
+    type: "chance",
+    title: "網路社群一起幫忙",
+    description: "很多會寫程式的人在網路上幫忙，大家一起找出問題在哪裡。",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-chance-4-4",
+    characterId: "goto",
+    contentStage: 4,
+    type: "chance",
+    title: "好好休假再出發",
+    description: "你放了一個長假，暫時離開電腦，身體和心情都變好了。",
+    effects: {
+      experience: 60
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-4-1",
+    characterId: "goto",
+    contentStage: 4,
+    type: "destiny",
+    title: "系統突然大當機",
+    description: "公司的電腦系統突然不能用，造成很大的損失，大家都很緊張。",
+    effects: {
+      experience: -40,
+      money: -500
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-4-2",
+    characterId: "goto",
+    contentStage: 4,
+    type: "destiny",
+    title: "眼睛和腰都不舒服",
+    description: "你長時間看螢幕、坐姿又不好，眼睛和腰都不舒服，只好去看醫生。",
+    effects: {
+      experience: -60,
+      money: -200
+    },
+    resolutionMode: "automatic"
+  },
+  {
+    id: "goto-destiny-4-3",
+    characterId: "goto",
+    contentStage: 4,
+    type: "destiny",
+    title: "擔心工作被 AI 影響",
+    description: "你聽到很多人在討論 AI，開始擔心自己以後還能不能做好工作。",
+    instruction: "全組組員在 10 秒內跟主角說：「一豪，你的關心和創意，AI 學不走！」",
+    resolutionMode: "task",
+    task: true,
+    successEffects: {},
+    failureEffects: {
+      experience: -60
+    },
+    successLabel: "完成鼓勵",
+    failureLabel: "未完成"
+  },
+  {
+    id: "goto-destiny-4-4",
+    characterId: "goto",
+    contentStage: 4,
+    type: "destiny",
+    title: "被誤會要負責",
+    description: "工作延誤不是你一個人的錯，但有人把責任都推給工程師團隊，大家溝通變得很困難。",
+    effects: {
+      experience: -60
+    },
+    resolutionMode: "automatic"
+  }
 ];
-

@@ -5,7 +5,7 @@
 - `images/characters/`：角色頭像、全身圖。
 - `images/cards/`：機會卡、命運卡圖片。
 - `images/board/`：地圖背景與格子圖片。
-- `audio/`：骰子、能力變化、重大事件等音效。
+- `audio/`：角色移動、能力變化、重大事件等音效。
 
 ## 建議命名規則
 
@@ -14,7 +14,7 @@
 - 角色：`character-goto-portrait.png`
 - 卡片：`card-zoey-stage-1-chance-01.png`
 - 格子：`board-chance.png`
-- 骰子音效：`sfx-dice-roll.mp3`
+- 角色移動：`walking.mp3`
 - 能力提升：`sfx-stat-up.mp3`
 - 能力下降：`sfx-stat-down.mp3`
 - 重大事件：`sfx-milestone.mp3`
