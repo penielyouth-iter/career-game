@@ -16,7 +16,7 @@ export type BoardCell = {
   id:number; type:string; label:string; icon:string; description:string;
   effects?:Effects; skip?:number; choice?:"overtime"|"class"; startRewards?:Record<string,number>;
 };
-export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[]; dataRevision?:number; cards?:Card[] };
+export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[] };
 export type PlayerState = {
   characterId:string; portraitId?:string; position:number; stage:number; stats:Record<StatKey,number>;
   skipTurns:number; finishedAt:number|null; decks:Record<string,string[]>;

@@ -116,7 +116,7 @@ export function subscribeRemoteGame(config: GameConfig, onValue: (state: GameSta
 }
 
 export async function saveRemoteConfig(config: GameConfig) {
-  const next = normalizeConfig({ ...config, dataRevision: (config.dataRevision || 0) + 1 });
+  const next = normalizeConfig(config);
   await setDoc(doc(firebaseDb(), ...CONFIG_PATH), { config: clone(next), updatedAt: serverTimestamp() });
   return next;
 }

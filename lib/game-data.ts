@@ -1,4 +1,4 @@
-import type { BoardCell, Card, CharacterConfig, Effects, GameConfig, GameState, StatKey } from "./types";
+import type { BoardCell, CharacterConfig, GameConfig, GameState, StatKey } from "./types";
 import { zoeyCards } from "./zoey-cards";
 import { gotoCards } from "./goto-cards";
 import { zhangCards } from "./zhang-cards";
@@ -53,35 +53,7 @@ const cells:BoardCell[]=[
  {id:18,type:"overtime",label:"加班邀請",icon:"🌃",description:"可選加班：經驗值 +20、金錢 +200",choice:"overtime"},
  {id:19,type:"quarrel",label:"合作衝突",icon:"⚡",description:"經驗值 -20",effects:{experience:-20}},
 ];
-const stages=["剛開始學習","努力練習中","做出重要作品","用能力幫助大家"];
-const themes:Record<string,string[]>={
- goto:["程式與面試","團隊開發","產品創新","科技使命"],
- zoey:["舞台試鏡","表演磨練","人氣突破","歌聲使命"],
- zhang:["開店第一步","一起做生意","產品受歡迎","幫助更多人"],
- rubio:["學習關心人","陪伴大家","帶領活動","分享希望"],
- esports:["校園天賦","青訓基地","賽區明星","世界冠軍"],
-};
-const good=["遇到好機會","完成重要練習","得到隊友幫忙","做出重要選擇"];
-const bad=["遇到困難","錢和工具暫時不夠","計畫臨時要改","需要重新想辦法"];
-const pos:Effects[]=[{experience:40},{experience:50},{experience:60,money:200},{experience:70}];
-const neg:Effects[]=[{experience:-20},{experience:-30,money:-100},{experience:-40,money:-200},{experience:-30}];
-const generatedCards:Card[]=[];
-for(const c of characterShells) for(let s=0;s<4;s++) for(const type of ["chance","destiny"] as const) for(let i=0;i<4;i++){
- const action=(type==="chance"?good:bad)[i];
- const description=c.id==="zhang"
-  ?`張玉曼在「${stages[s]}」的路上，${action}。請大家一起想想，怎麼做會更好！`
-  :c.id==="rubio"
-   ?`盧比歐在「${stages[s]}」的路上，${action}。請大家一起想想，怎麼陪伴和鼓勵別人！`
-   :`${c.name}在「${stages[s]}」旅程中，${action}。請守護天使一起討論最好的回應！`;
- generatedCards.push({id:`${c.id}-${type}-${s+1}-${i+1}`,characterId:c.id,contentStage:s+1,type,
-  title:`${themes[c.id][s]}・${action}`,description,
-  effects:type==="chance"?pos[s]:neg[s],task:i===3,
-  successEffects:i===3?(type==="chance"?{experience:50}:{experience:20}):undefined,
-  failureEffects:i===3?{experience:-20}:undefined});
-}
-const curatedCards=[...zoeyCards,...gotoCards,...zhangCards,...rubioCards,...esportsCards].filter(card=>card.contentStage<=4);
-const curatedCharacterIds=new Set(["zoey","goto","zhang","rubio","esports"]);
-const cards=[...generatedCards.filter(card=>!curatedCharacterIds.has(card.characterId)),...curatedCards];
+const cards=[...zoeyCards,...gotoCards,...zhangCards,...rubioCards,...esportsCards].filter(card=>card.contentStage<=4);
 const characters:CharacterConfig[]=characterShells.map(character=>({
  ...character,
  cards:cards.filter(card=>card.characterId===character.id),
@@ -93,7 +65,6 @@ export const playerSlots=[
  {id:"player-4",portraitId:"rubio",label:"玩家 4"},
 ];
 export const defaultConfig:GameConfig={
- dataRevision:15,
  title:"守護天使的生涯大冒險",
  story:"四組守護天使陪伴主角累積經驗值與金錢，走過四個職涯階段，成為帶著使命前進的專業人士。",
  characters,cells
