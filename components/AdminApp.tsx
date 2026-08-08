@@ -76,6 +76,11 @@ function normalizeCellsJson(value:unknown):BoardCell[]{
   return next;
  }).sort((a,b)=>a.id-b.id);
 }
+function replaceRole(config:GameConfig,selectedRole:string,role:CharacterConfig):GameConfig{
+ const exists=config.characters.some(item=>item.id===selectedRole);
+ const characters=exists?config.characters.map(item=>item.id===selectedRole?role:item):[...config.characters,role];
+ return {...config,characters};
+}
 
 export default function AdminApp(){
  const[auth,setAuth]=useState<boolean|null>(null);const[email,setEmail]=useState("");const[password,setPassword]=useState("");const[config,setConfig]=useState<GameConfig|null>(null);const[game,setGame]=useState<GameState|null>(null);
@@ -85,10 +90,11 @@ export default function AdminApp(){
  useEffect(()=>{if(!config)return;setMapJsonText(cleanJson(config.cells));setMapJsonError("")},[config]);
  useEffect(()=>{if(!auth||!config)return;return subscribeRemoteGame(config,setGame,error=>setMsg(error.message))},[auth,config]);
  const login=async(e:React.FormEvent)=>{e.preventDefault();try{await signInWithEmailAndPassword(firebaseAuth(),email,password);setPassword("");setMsg("")}catch{setMsg("登入失敗，請確認 Firebase 帳號與密碼。")}};
- const publish=async()=>{if(!config)return;try{setMsg("發布中…");const saved=await saveRemoteConfig(config);setConfig(saved);setMsg("已發布！新設定已寫入 Firebase。")}catch(error){setMsg(error instanceof Error?`發布失敗：${error.message}`:"發布失敗，請重新登入。")}};
+ const configWithCurrentEditor=()=>{if(!config)return null;if(tab==="roles"&&selectedRole){const role=normalizeRole(JSON.parse(jsonText) as CharacterConfig);if(!role.id)throw new Error("角色 JSON 必須包含 id");setJsonError("");return replaceRole(config,selectedRole,role)}if(tab==="cells"){const cells=normalizeCellsJson(JSON.parse(mapJsonText));if(!cells.length)throw new Error("地圖格子至少需要一格");setMapJsonError("");return {...config,cells}}return config};
+ const publish=async()=>{if(!config)return;try{setMsg("發布中…");const nextConfig=configWithCurrentEditor();if(!nextConfig)return;const saved=await saveRemoteConfig(nextConfig);setConfig(saved);setMsg("已發布！新設定已寫入 Firebase。")}catch(error){if(tab==="roles")setJsonError(error instanceof Error?error.message:"JSON 格式錯誤");if(tab==="cells")setMapJsonError(error instanceof Error?error.message:"JSON 格式錯誤");setMsg(error instanceof Error?`發布失敗：${error.message}`:"發布失敗，請重新登入。")}};
  const reset=async()=>{if(!config)return;if(!confirm("確定要清除目前遊戲進度？卡片、角色與格子設定不會被刪除。"))return;try{const next=await resetRemoteGame(config);setGame(next);setMsg("遊戲已重置。")}catch(error){setMsg(error instanceof Error?`重置失敗：${error.message}`:"重置失敗。")}};
  const logout=async()=>{await signOut(firebaseAuth());setAuth(false)};
- const applyRoleJson=()=>{if(!config)return;try{const role=normalizeRole(JSON.parse(jsonText) as CharacterConfig);if(!role.id)throw new Error("角色 JSON 必須包含 id");setConfig(current=>current?{...current,characters:current.characters.map(item=>item.id===selectedRole?role:item)}:current);setSelectedRole(role.id);setJsonError("");setMsg("角色 JSON 已套用，記得按發布修改。")}catch(error){setJsonError(error instanceof Error?error.message:"JSON 格式錯誤")}};
+ const applyRoleJson=()=>{if(!config)return;try{const role=normalizeRole(JSON.parse(jsonText) as CharacterConfig);if(!role.id)throw new Error("角色 JSON 必須包含 id");setConfig(current=>current?replaceRole(current,selectedRole,role):current);setSelectedRole(role.id);setJsonError("");setMsg("角色 JSON 已套用，記得按發布修改。")}catch(error){setJsonError(error instanceof Error?error.message:"JSON 格式錯誤")}};
  const handleJsonKeyDown=(event:React.KeyboardEvent<HTMLTextAreaElement>,value:string,setter:(next:string)=>void)=>{if(event.key!=="Tab")return;event.preventDefault();const target=event.currentTarget;const start=target.selectionStart;const end=target.selectionEnd;const next=value.slice(0,start)+"  "+value.slice(end);setter(next);requestAnimationFrame(()=>{target.selectionStart=target.selectionEnd=start+2})};
  const applyMapJson=()=>{if(!config)return;try{const cells=normalizeCellsJson(JSON.parse(mapJsonText));if(!cells.length)throw new Error("地圖格子至少需要一格");setConfig(current=>current?{...current,cells}:current);setMapJsonError("");setMsg("地圖格子 JSON 已套用，記得按發布修改。")}catch(error){setMapJsonError(error instanceof Error?error.message:"JSON 格式錯誤")}};
  const addRole=()=>{if(!config)return;const role=roleTemplate(config.characters.length+1);setConfig({...config,characters:[...config.characters,role]});setSelectedRole(role.id);setMsg("已新增角色，請編輯 JSON 後發布。")};
