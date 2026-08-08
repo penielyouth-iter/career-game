@@ -15,13 +15,11 @@
   },
   {
     "id": 2,
-    "type": "reading",
-    "label": "閱讀",
+    "type": "teamGrowth",
+    "label": "團隊一起成長",
     "icon": "📚",
-    "description": "你讀到一本有幫助的書，學會新的想法，也找到可以用在職涯旅程上的方法，經驗值 +20。",
-    "effects": {
-      "experience": 20
-    }
+    "description": "你分享最近學到的一個方法，選擇一位其他玩家一起討論。你們兩人都獲得經驗值 +20。",
+    "choice": "teamGrowth"
   },
   {
     "id": 3,
@@ -60,9 +58,9 @@
   {
     "id": 7,
     "type": "support",
-    "label": "隊友支援",
+    "label": "隊友支援金錢",
     "icon": "🤝",
-    "description": "你最近有點低落，需要隊友幫忙打氣。選擇一位其他玩家，讓他給你 30 金幣。",
+    "description": "你最近有點低落，需要隊友支援。選擇一位其他玩家，讓他給你 30 金幣。",
     "choice": "support"
   },
   {

@@ -102,7 +102,7 @@ function normalizeCells(raw: Partial<GameConfig>): GameConfig["cells"] {
       ...(normalizeEffects(cell.effects) ? { effects: normalizeEffects(cell.effects) } : {}),
       ...(cell.skip ? { skip: Math.max(0, Number(cell.skip) || 0) } : {}),
       ...(cell.move ? { move: Math.max(-6, Math.min(6, Math.floor(Number(cell.move) || 0))) } : {}),
-      ...(cell.choice === "charity" || cell.choice === "support" ? { choice: cell.choice } : {}),
+      ...(cell.choice === "charity" || cell.choice === "support" || cell.choice === "teamGrowth" ? { choice: cell.choice } : {}),
     };
   });
 }
