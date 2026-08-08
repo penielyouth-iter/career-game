@@ -40,20 +40,20 @@ export const gotoCards:Card[]=[
     "description": "練習題跑不出來，你決定一步一步檢查，看看是哪一行寫錯。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接打字小工作",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先完成打字小工作賺一點錢，但練習除錯的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢買練習題",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "買了適合新手的練習題，一豪更會一步一步找錯誤。"
     }
   },
   {
@@ -65,20 +65,20 @@ export const gotoCards:Card[]=[
     "description": "你遇到不懂的地方，可以請老師提示，也可以整理自己的想法繼續試。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先整理筆記賺獎勵",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "把筆記整理好換到小獎勵，但這次請教老師的時間少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢參加問答課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "參加問答課後，一豪更敢把不懂的地方說出來。"
     }
   },
   {
@@ -86,10 +86,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 1,
     "type": "destiny",
-    "title": "符號少打一個",
-    "description": "你少打一個括號，程式一直不能跑，才知道小細節也很重要。",
+    "title": "老師留下小提示",
+    "description": "一豪在工程師旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 1,
     "type": "destiny",
-    "title": "看不懂英文錯誤訊息",
-    "description": "螢幕出現一長串英文，你有點害怕，以為自己完全學不會。",
+    "title": "完成課堂小任務",
+    "description": "一豪原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -168,20 +168,20 @@ export const gotoCards:Card[]=[
     "description": "新人會議中有一段你沒聽懂，可以誠實發問，也可以記下重點查資料。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接簡單支援任務",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先做簡單支援任務增加收入，但深入弄懂會議內容的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢上新人課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "上完新人課後，一豪更知道會議裡的重點在說什麼。"
     }
   },
   {
@@ -193,20 +193,20 @@ export const gotoCards:Card[]=[
     "description": "主管請你用簡單的話說明今天完成了什麼、還卡在哪裡。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先多做一個小功能",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "多完成小功能得到獎勵，但練習清楚回報的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢學簡報表達",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "學會整理重點後，一豪比較能把工作進度說清楚。"
     }
   },
   {
@@ -214,10 +214,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 2,
     "type": "destiny",
-    "title": "害怕承認不會",
-    "description": "你遇到問題卻不好意思說，拖了很久才讓大家發現進度卡住。",
+    "title": "前輩幫你看懂問題",
+    "description": "一豪在工程師旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 2,
     "type": "destiny",
-    "title": "改到別人的檔案",
-    "description": "你還不熟悉團隊規則，不小心改到別人正在做的地方，需要花時間一起修回來。",
+    "title": "新人小獎金",
+    "description": "一豪原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -296,20 +296,20 @@ export const gotoCards:Card[]=[
     "description": "你接到一個重要功能，可以直接開始寫，也可以畫流程圖和同事討論。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接急件賺獎金",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "急件帶來獎金，但太快開始做，少了一點設計前的思考。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢買設計工具",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "用工具畫流程和討論後，一豪更能做出穩定功能。"
     }
   },
   {
@@ -321,20 +321,20 @@ export const gotoCards:Card[]=[
     "description": "有新同事加入，你試著把自己學到的方法教給他。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先完成自己的任務",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先把自己的任務完成拿到獎勵，但陪新人練習的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢準備教學資料",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "準備清楚的教學資料後，一豪更會帶新人一起成長。"
     }
   },
   {
@@ -342,10 +342,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 3,
     "type": "destiny",
-    "title": "功能做到一半才發現想錯",
-    "description": "你寫了很多後才發現原本方向不太對，只好停下來重新整理。",
+    "title": "團隊肯定你的設計",
+    "description": "一豪在工程師旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 3,
     "type": "destiny",
-    "title": "測試沒有做完整",
-    "description": "你以為功能完成了，但使用者點到另一種情況時出現問題，需要補做測試。",
+    "title": "專案表現獎勵",
+    "description": "一豪原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -424,20 +424,20 @@ export const gotoCards:Card[]=[
     "description": "有人邀請你做賺錢很多的案子，也有人需要你做幫助弱勢家庭的工具。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "接高收入案子",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "高收入案子讓資源更充足，但暫時少了一點服務弱勢家庭的經驗。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "自費做公益工具",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "投入金幣做公益工具後，一豪更確定科技可以幫助人。"
     }
   },
   {
@@ -449,20 +449,20 @@ export const gotoCards:Card[]=[
     "description": "社區遇到資料整理困難，你帶大家一起想出簡單又好用的方法。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接資料整理工作",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先靠資料整理工作增加收入，但陪社區討論的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢辦共學時間",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "辦共學時間後，社區更會使用工具，一豪也累積更多助人經驗。"
     }
   },
   {
@@ -470,10 +470,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 4,
     "type": "destiny",
-    "title": "責任變大壓力也變大",
-    "description": "你成為專家後，很多人都來問你，讓你覺得自己不能犯錯。",
+    "title": "社區用上你的工具",
+    "description": "一豪在工程師旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const gotoCards:Card[]=[
     "characterId": "goto",
     "contentStage": 4,
     "type": "destiny",
-    "title": "只看效率忘了人的感受",
-    "description": "你把系統做得很快，卻忘了有些使用者不熟電腦，大家用起來有點困難。",
+    "title": "公益案得到支持",
+    "description": "一豪原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },

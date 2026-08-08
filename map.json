@@ -59,11 +59,11 @@
   },
   {
     "id": 7,
-    "type": "sick",
-    "label": "狀態低迷",
-    "icon": "🤒",
-    "description": "最近太累了，身體和心情都需要休息一下；下回合輪到你時暫停一次。",
-    "skip": 1
+    "type": "support",
+    "label": "隊友支援",
+    "icon": "🤝",
+    "description": "你最近有點低落，需要隊友幫忙打氣。選擇一位其他玩家，讓他給你 30 金幣。",
+    "choice": "support"
   },
   {
     "id": 8,
@@ -122,10 +122,10 @@
   },
   {
     "id": 14,
-    "type": "destiny",
-    "label": "命運",
-    "icon": "🌙",
-    "description": "出現一個小挑戰，抽命運卡，看看你要怎麼面對和成長。"
+    "type": "chance",
+    "label": "機會",
+    "icon": "✨",
+    "description": "新的好機會出現了，抽一張符合目前角色階段的機會卡，看看這次會得到什麼幫助。"
   },
   {
     "id": 15,

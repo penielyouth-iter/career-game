@@ -40,20 +40,20 @@ export const rubioCards:Card[]=[
     "description": "盧比歐想參加學習課程，需要靠義賣籌一點錢。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先義賣籌錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "義賣籌到預備金，但參加課程的時間要晚一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢參加課程",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "課程讓盧比歐更懂得怎麼關心和陪伴人。"
     }
   },
   {
@@ -65,20 +65,20 @@ export const rubioCards:Card[]=[
     "description": "盧比歐想多讀書，也想先打工存錢。兩個選擇都不容易，需要好好安排時間。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先打工存錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先存錢讓生活更穩，但讀書時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢買書學習",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "讀了適合的書後，盧比歐更懂得聽人說話。"
     }
   },
   {
@@ -86,10 +86,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 1,
     "type": "destiny",
-    "title": "家人有點擔心",
-    "description": "家人擔心牧師工作很辛苦，也擔心收入不穩定，讓盧比歐心裡有點難過。",
+    "title": "朋友願意分享心事",
+    "description": "盧比歐在牧師旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 1,
     "type": "destiny",
-    "title": "存款快不夠了",
-    "description": "還在準備和學習的時候，盧比歐發現自己的錢快不夠用了。",
+    "title": "義賣得到支持",
+    "description": "盧比歐原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -168,20 +168,20 @@ export const rubioCards:Card[]=[
     "description": "青年聚會一開始大家很害羞，盧比歐決定用簡單遊戲讓大家放鬆。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接活動協助",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "協助活動得到一點收入，但設計破冰遊戲的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢準備遊戲道具",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "有了合適道具，盧比歐更會幫大家放鬆。"
     }
   },
   {
@@ -193,20 +193,20 @@ export const rubioCards:Card[]=[
     "description": "有人需要關心，盧比歐可以自己去探訪，也可以找同伴一起去，彼此照應。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接行政工作",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "行政工作讓收入增加，但這次探訪準備少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢交通去探訪",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "和同伴一起探訪後，盧比歐更懂得陪伴需要的人。"
     }
   },
   {
@@ -214,10 +214,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 2,
     "type": "destiny",
-    "title": "講話突然卡住",
-    "description": "盧比歐第一次上台分享時太緊張，講到一半突然忘記下一句。",
+    "title": "探訪得到好回應",
+    "description": "盧比歐在牧師旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 2,
     "type": "destiny",
-    "title": "團隊意見不一樣",
-    "description": "大家對活動怎麼辦有不同想法，討論很久都沒有結果。",
+    "title": "活動經費剛好補足",
+    "description": "盧比歐原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -296,20 +296,20 @@ export const rubioCards:Card[]=[
     "description": "越來越多人想參加，盧比歐可以開新小組，也可以先把原本的小組照顧好。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接更多活動",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "更多活動帶來收入，但照顧小組品質的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢訓練小組同工",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "同工被訓練後，小組能更穩定地照顧人。"
     }
   },
   {
@@ -321,20 +321,20 @@ export const rubioCards:Card[]=[
     "description": "盧比歐把陪伴人的故事寫成文章，很多人看了覺得被鼓勵。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接講座邀請",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "講座有收入，但整理陪伴故事的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢出版小故事",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "小故事鼓勵了更多人，盧比歐也更會分享希望。"
     }
   },
   {
@@ -342,10 +342,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 3,
     "type": "destiny",
-    "title": "活動場地突然變貴",
-    "description": "原本租好的場地突然漲價，活動預算變得很吃緊。",
+    "title": "小組分享很溫暖",
+    "description": "盧比歐在牧師旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 3,
     "type": "destiny",
-    "title": "直播設備壞掉",
-    "description": "活動直播開始前，麥克風和鏡頭突然出問題，大家手忙腳亂。",
+    "title": "講座收到奉獻",
+    "description": "盧比歐原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -424,20 +424,20 @@ export const rubioCards:Card[]=[
     "description": "盧比歐發現自己不能什麼都做，可以把一些工作交給同伴，也可以先取消不急的活動。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先保留付費活動",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "付費活動讓資源穩定，但重新安排工作量的練習少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢培訓同伴",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "同伴能一起分擔後，盧比歐更懂得健康服事。"
     }
   },
   {
@@ -449,20 +449,20 @@ export const rubioCards:Card[]=[
     "description": "盧比歐重新明白，牧師不是完美的人，而是願意陪大家一起走的人。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接分享邀請",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "分享邀請帶來收入，但安靜祝福大家的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢辦祝福聚會",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "祝福聚會讓大家被陪伴，盧比歐也更確定牧師的使命。"
     }
   },
   {
@@ -470,10 +470,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 4,
     "type": "destiny",
-    "title": "重要同工離開",
-    "description": "一位一起努力很久的同工離開團隊，盧比歐覺得很失落。",
+    "title": "陪伴帶來新的希望",
+    "description": "盧比歐在牧師旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const rubioCards:Card[]=[
     "characterId": "rubio",
     "contentStage": 4,
     "type": "destiny",
-    "title": "被誤會很受傷",
-    "description": "盧比歐明明想幫忙，卻被人誤會，心裡覺得委屈又難過。",
+    "title": "助人計畫有人支持",
+    "description": "盧比歐原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },

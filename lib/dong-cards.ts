@@ -40,7 +40,7 @@ export const dongCards:Card[]=[
     "description": "悟元想買一本動物照顧入門書，但也可以先幫忙打工存錢。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先幫忙打工存錢",
       "effects": {
         "experience": -20,
         "money": 50
@@ -65,7 +65,7 @@ export const dongCards:Card[]=[
     "description": "學校附近有動物照顧志工活動，悟元可以去幫忙，也可以先做簡單工作準備交通費。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先準備交通費",
       "effects": {
         "experience": -20,
         "money": 50
@@ -86,10 +86,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 1,
     "type": "destiny",
-    "title": "資料背混了",
-    "description": "動物照顧知識很多，悟元把幾個重點記反了，只好重新整理筆記。",
+    "title": "老師稱讚你的觀察",
+    "description": "悟元在獸醫旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 1,
     "type": "destiny",
-    "title": "被叫聲嚇到",
-    "description": "見習時突然聽到很大的叫聲，悟元緊張了一下，動作變得有點慢。",
+    "title": "整理診所得到獎勵",
+    "description": "悟元原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "experience": -20
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -113,7 +113,7 @@ export const dongCards:Card[]=[
     "title": "練習用品不夠",
     "description": "悟元需要買筆記本、口罩和練習用品，零用錢一下子少了一些。",
     "effects": {
-      "money": -30
+      "experience": -20
     },
     "resolutionMode": "automatic"
   },
@@ -168,7 +168,7 @@ export const dongCards:Card[]=[
     "description": "悟元想報名新人課程，但也可以先多接一點診所雜務補貼生活費。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先多接診所雜務",
       "effects": {
         "experience": -20,
         "money": 50
@@ -176,12 +176,12 @@ export const dongCards:Card[]=[
       "resultDescription": "多接工作讓收入穩一點，但進修時間少了一些。"
     },
     "optionB": {
-      "label": "花錢上課",
+      "label": "花錢上新人課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "花錢進修後，悟元更懂新人工作要注意的細節。"
+      "resultDescription": "進修後，悟元更懂新人工作要注意的細節。"
     }
   },
   {
@@ -193,7 +193,7 @@ export const dongCards:Card[]=[
     "description": "悟元想買自己的聽診器，也可以先把薪水存起來，等更確定需要再買。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先把薪水存起來",
       "effects": {
         "experience": -20,
         "money": 50
@@ -201,7 +201,7 @@ export const dongCards:Card[]=[
       "resultDescription": "先多做一些工作存錢，雖然練習時間少一點，但很踏實。"
     },
     "optionB": {
-      "label": "花錢買工具",
+      "label": "花錢買聽診器",
       "effects": {
         "experience": 30,
         "money": -50
@@ -214,10 +214,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 2,
     "type": "destiny",
-    "title": "病歷寫太慢",
-    "description": "診所很忙，悟元寫病歷時不夠熟練，需要請前輩幫忙檢查。",
+    "title": "前輩教你安撫動物",
+    "description": "悟元在獸醫旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 2,
     "type": "destiny",
-    "title": "安撫方式不對",
-    "description": "悟元太快靠近緊張的小病人，對方更害怕了，前輩提醒他要慢慢來。",
+    "title": "診所小補助",
+    "description": "悟元原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "experience": -20
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -241,7 +241,7 @@ export const dongCards:Card[]=[
     "title": "制服弄髒了",
     "description": "忙了一整天後，悟元的制服和鞋子都髒了，只好花錢清洗和更換用品。",
     "effects": {
-      "money": -30
+      "experience": -20
     },
     "resolutionMode": "automatic"
   },
@@ -296,7 +296,7 @@ export const dongCards:Card[]=[
     "description": "悟元想學更深入的檢查方法，但課程費用不便宜，也可以先多接一些工作存錢。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先多接工作存錢",
       "effects": {
         "experience": -20,
         "money": 50
@@ -304,7 +304,7 @@ export const dongCards:Card[]=[
       "resultDescription": "先累積收入，雖然學習慢一點，但財務比較穩。"
     },
     "optionB": {
-      "label": "花錢進修",
+      "label": "花錢上專科課",
       "effects": {
         "experience": 30,
         "money": -50
@@ -321,7 +321,7 @@ export const dongCards:Card[]=[
     "description": "醫院有研究計畫需要幫忙，也有額外門診時段需要支援，悟元要做取捨。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先支援額外門診",
       "effects": {
         "experience": -20,
         "money": 50
@@ -329,7 +329,7 @@ export const dongCards:Card[]=[
       "resultDescription": "支援門診帶來收入，但研究時間少了一些。"
     },
     "optionB": {
-      "label": "花錢做研究",
+      "label": "花錢投入研究",
       "effects": {
         "experience": 30,
         "money": -50
@@ -342,10 +342,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 3,
     "type": "destiny",
-    "title": "複雜病例想很久",
-    "description": "有個狀況不容易判斷，悟元花很多時間查資料，也學到自己還需要進步。",
+    "title": "診斷討論有收穫",
+    "description": "悟元在獸醫旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 3,
     "type": "destiny",
-    "title": "團隊溝通漏訊息",
-    "description": "交班時有一個提醒沒有說清楚，讓同事多花時間確認，悟元學到溝通要完整。",
+    "title": "門診表現獎勵",
+    "description": "悟元原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "experience": -20
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -369,7 +369,7 @@ export const dongCards:Card[]=[
     "title": "儀器保養費",
     "description": "常用的檢查儀器需要保養，悟元也分擔了一部分費用。",
     "effects": {
-      "money": -30
+      "experience": -20
     },
     "resolutionMode": "automatic"
   },
@@ -424,7 +424,7 @@ export const dongCards:Card[]=[
     "description": "悟元想開免費照護課幫助社區，也可以多接一些門診維持診所收入。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先多接門診",
       "effects": {
         "experience": -20,
         "money": 50
@@ -449,7 +449,7 @@ export const dongCards:Card[]=[
     "description": "悟元想讓診所設備更好，也可以先存錢，讓團隊運作更穩。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先存錢穩住診所",
       "effects": {
         "experience": -20,
         "money": 50
@@ -470,10 +470,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 4,
     "type": "destiny",
-    "title": "太想照顧所有人",
-    "description": "悟元很想幫每一個需要的人，結果把行程排太滿，需要重新學會休息和分工。",
+    "title": "照護課幫到家庭",
+    "description": "悟元在獸醫旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const dongCards:Card[]=[
     "characterId": "dong",
     "contentStage": 4,
     "type": "destiny",
-    "title": "說明不夠清楚",
-    "description": "家屬聽不懂治療計畫，心裡很擔心，悟元學到要用更簡單的話說明。",
+    "title": "公益照護得到支持",
+    "description": "悟元原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "experience": -20
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -497,7 +497,7 @@ export const dongCards:Card[]=[
     "title": "急救用品補貨",
     "description": "診所急救用品用得很快，悟元需要補貨，讓下一次需要時不會缺少。",
     "effects": {
-      "money": -30
+      "experience": -20
     },
     "resolutionMode": "automatic"
   },

@@ -40,20 +40,20 @@ export const zoeyCards:Card[]=[
     "description": "社團練習時，Zoey 試著站穩、微笑，讓自己看起來更有精神。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接校園小演出",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "小演出讓 Zoey 得到一些收入，但舞台姿勢練習時間少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢上姿勢課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "上完姿勢課後，Zoey 更知道怎麼站穩和微笑。"
     }
   },
   {
@@ -65,20 +65,20 @@ export const zoeyCards:Card[]=[
     "description": "Zoey 練了一小段歌，可以請同學給建議，也可以先自己調整唱法。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接活動唱歌",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "活動唱歌得到收入，但請同學給建議的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢錄下來檢查",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "錄下自己的歌聲後，Zoey 更知道哪裡可以唱得更好。"
     }
   },
   {
@@ -86,10 +86,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 1,
     "type": "destiny",
-    "title": "節拍一直跟不上",
-    "description": "音樂速度有點快，Zoey 常常慢半拍，覺得自己是不是沒有天分。",
+    "title": "老師稱讚節奏感",
+    "description": "Zoey在偶像旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 1,
     "type": "destiny",
-    "title": "唱太大聲喉嚨累",
-    "description": "她太想唱好，一直用力唱，喉嚨變得不舒服。",
+    "title": "校園小演出獎勵",
+    "description": "Zoey原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -168,20 +168,20 @@ export const zoeyCards:Card[]=[
     "description": "每天都有很多課，Zoey 可以熬夜多練，也可以安排休息讓身體保持健康。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接短活動賺錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "短活動讓收入增加，但練習和休息的安排變得比較緊。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢請老師排課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "老師幫忙安排後，Zoey 更懂得健康又有效地練習。"
     }
   },
   {
@@ -193,20 +193,20 @@ export const zoeyCards:Card[]=[
     "description": "新人見面會上，Zoey 要用清楚又有精神的方式介紹自己。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接主持小任務",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "主持小任務帶來收入，但正式自我介紹的準備時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢練自我介紹",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "練習後，Zoey 更能清楚又有精神地介紹自己。"
     }
   },
   {
@@ -214,10 +214,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 2,
     "type": "destiny",
-    "title": "動作常被老師糾正",
-    "description": "舞蹈老師一直提醒手的位置和腳步，Zoey 覺得自己怎麼都做不好。",
+    "title": "練習室前輩指點",
+    "description": "Zoey在偶像旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 2,
     "type": "destiny",
-    "title": "和同伴比較心情低落",
-    "description": "看到其他新人進步很快，Zoey 忍不住一直比較，心裡很難過。",
+    "title": "新人活動車馬費",
+    "description": "Zoey原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -296,20 +296,20 @@ export const zoeyCards:Card[]=[
     "description": "公司建議她模仿最近流行的風格，但 Zoey 也想保留自己的特色。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先唱流行商演",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "商演帶來收入，但 Zoey 暫時少了一點發展自己特色的時間。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢做特色練習",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "投入練習後，Zoey 更知道自己的聲音和風格。"
     }
   },
   {
@@ -321,20 +321,20 @@ export const zoeyCards:Card[]=[
     "description": "有新練習生加入，Zoey 試著帶大家做簡單暖身，幫助團隊進入狀態。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先完成個人工作",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "個人工作讓收入穩定，但陪新人暖身的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢準備暖身課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "準備暖身課後，Zoey 更會帶團隊一起進入狀態。"
     }
   },
   {
@@ -342,10 +342,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 3,
     "type": "destiny",
-    "title": "錄音一直重來",
-    "description": "一句歌詞錄了很多次都不滿意，Zoey 又累又挫折。",
+    "title": "舞台表現被肯定",
+    "description": "Zoey在偶像旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 3,
     "type": "destiny",
-    "title": "表演前身體不舒服",
-    "description": "重要表演前，她因為練太多而聲音沙啞，只好減少練習並休息。",
+    "title": "作品得到分潤",
+    "description": "Zoey原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -424,20 +424,20 @@ export const zoeyCards:Card[]=[
     "description": "Zoey 有更多影響力，可以只追求更多掌聲，也可以用舞台分享希望。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "接更多商業舞台",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "商業舞台帶來收入，但用舞台分享希望的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "自費辦希望演出",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "希望演出鼓勵了大家，Zoey 也更確定自己的影響力可以祝福人。"
     }
   },
   {
@@ -449,20 +449,20 @@ export const zoeyCards:Card[]=[
     "description": "Zoey 開工作坊，鼓勵害羞的孩子用唱歌和動作說出自己的心情。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接付費工作坊",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "付費工作坊讓資源更穩，但免費陪伴孩子的名額少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "自費辦表達課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "表達課幫助害羞的孩子開口，Zoey 得到更多助人的經驗。"
     }
   },
   {
@@ -470,10 +470,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 4,
     "type": "destiny",
-    "title": "太多人期待你完美",
-    "description": "成為知名歌手後，大家希望 Zoey 每次都不能出錯，讓她壓力很大。",
+    "title": "歌聲鼓勵了孩子",
+    "description": "Zoey在偶像旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const zoeyCards:Card[]=[
     "characterId": "zoey",
     "contentStage": 4,
     "type": "destiny",
-    "title": "忙到忘記陪家人朋友",
-    "description": "工作排得很滿，她發現自己很久沒有好好陪重要的人說話。",
+    "title": "公益演出有人贊助",
+    "description": "Zoey原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },

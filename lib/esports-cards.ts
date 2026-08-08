@@ -40,20 +40,20 @@ export const esportsCards:Card[]=[
     "description": "小明很想一直練習，但也知道功課、睡覺和運動都很重要。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接遊戲測試",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "遊戲測試得到收入，但健康練習和休息時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢排健康訓練",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "排好訓練後，小明更懂得練習、功課和休息要平衡。"
     }
   },
   {
@@ -65,20 +65,20 @@ export const esportsCards:Card[]=[
     "description": "小明和家人好好溝通，答應會安排時間、保護眼睛，家人願意支持他參加試訓。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先做家事存錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先存到參加試訓的費用，但和家人討論練習計畫的時間少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢做試訓準備",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "準備好作息和護眼計畫後，小明更能讓家人放心。"
     }
   },
   {
@@ -86,10 +86,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 1,
     "type": "destiny",
-    "title": "上課偷偷想比賽",
-    "description": "小明上課時一直想剛剛的比賽畫面，結果老師問問題時完全答不出來。",
+    "title": "隊友稱讚你的報位",
+    "description": "小明在電競選手旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 1,
     "type": "destiny",
-    "title": "練太久眼睛痠",
-    "description": "小明連續盯著螢幕太久，眼睛又乾又痠，只好先停下來休息。",
+    "title": "校園賽小獎金",
+    "description": "小明原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -168,20 +168,20 @@ export const esportsCards:Card[]=[
     "description": "小明暫時還不是先發。他可以抱怨自己沒上場，也可以認真觀察學長怎麼打。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接陪練賺錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "陪練增加收入，但觀察學長打法的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢看重播課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "認真學習後，小明更知道替補時也能成長。"
     }
   },
   {
@@ -193,20 +193,20 @@ export const esportsCards:Card[]=[
     "description": "教練帶小明看比賽重播，找出哪裡做得好、哪裡可以改進。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接練習賽支援",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "支援練習賽有收入，但和教練看重播的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢做重播分析",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "分析後，小明更知道自己哪裡能改進。"
     }
   },
   {
@@ -214,10 +214,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 2,
     "type": "destiny",
-    "title": "隊友同時大喊",
-    "description": "比賽中大家一起講話，重要訊息被蓋掉，隊伍錯過好機會。",
+    "title": "教練指出進步方向",
+    "description": "小明在電競選手旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 2,
     "type": "destiny",
-    "title": "練習室網路斷線",
-    "description": "重要練習賽開始前，網路突然不穩，大家只能重新安排練習。",
+    "title": "訓練補助到位",
+    "description": "小明原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -296,20 +296,20 @@ export const esportsCards:Card[]=[
     "description": "贏下比賽後，主持人問小明誰最厲害。他可以只稱讚自己，也可以感謝全隊。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "接個人代言訪問",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "個人代言訪問帶來收入，但少了一點練習感謝全隊的態度。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢上表達課",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "表達課讓小明更會在訪問中尊重隊友、感謝團隊。"
     }
   },
   {
@@ -321,20 +321,20 @@ export const esportsCards:Card[]=[
     "description": "有小朋友寫卡片給小明，說因為他學會輸了也不放棄，讓小明很受鼓勵。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接粉絲活動",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "粉絲活動有收入，但回信鼓勵小朋友的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢做回信卡片",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "小明用心回信後，更懂得自己的態度會影響別人。"
     }
   },
   {
@@ -342,10 +342,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 3,
     "type": "destiny",
-    "title": "關鍵時刻按錯鍵",
-    "description": "比賽最緊張的時候，小明一急按錯鍵，讓隊伍失去一次好機會。",
+    "title": "比賽溝通更成熟",
+    "description": "小明在電競選手旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 3,
     "type": "destiny",
-    "title": "網路留言亂批評",
-    "description": "有些人在網路上亂罵小明，讓他心情很受影響，練習也變得不專心。",
+    "title": "戰隊表現獎勵",
+    "description": "小明原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -424,20 +424,20 @@ export const esportsCards:Card[]=[
     "description": "小明拿到一筆獎金。可以買更好的設備，也可以拿一部分支持兒童電競營隊。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先升級比賽設備",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "設備讓收入機會更穩，但支持兒童營隊的資源少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "捐錢支持兒童營",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "兒童營隊得到幫助，小明也更確定冠軍可以鼓勵更多人。"
     }
   },
   {
@@ -449,20 +449,20 @@ export const esportsCards:Card[]=[
     "description": "小明受邀分享：真正的電競選手要守時間、保護眼睛、尊重隊友。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接品牌合作",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "品牌合作帶來收入，但準備健康電競分享的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "自費辦分享會",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "分享會讓孩子學會健康玩遊戲，小明也累積更多助人經驗。"
     }
   },
   {
@@ -470,10 +470,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 4,
     "type": "destiny",
-    "title": "冠軍壓力變大",
-    "description": "得到冠軍後，大家期待小明每次都要贏，讓他壓力變得很大。",
+    "title": "分享帶來正面影響",
+    "description": "小明在電競選手旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const esportsCards:Card[]=[
     "characterId": "esports",
     "contentStage": 4,
     "type": "destiny",
-    "title": "出國比賽作息混亂",
-    "description": "跨國比賽讓小明睡覺時間亂掉，第一天練習精神很差。",
+    "title": "健康電競課有人贊助",
+    "description": "小明原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },

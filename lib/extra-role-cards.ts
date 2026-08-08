@@ -11,9 +11,37 @@ type StageSeed = {
 };
 type RoleSeed = { id: string; name: string; stageSeeds: [StageSeed, StageSeed, StageSeed, StageSeed] };
 
+const positiveDestinyByStage = [
+  {
+    experienceTitle: "得到老師鼓勵",
+    experienceDescription: "學習時有人看見他的努力，給了剛剛好的提醒，讓他更有信心，經驗值 +20。",
+    moneyTitle: "小小支持到位",
+    moneyDescription: "他認真完成眼前的小事，得到一筆小小支持，金錢 +30。",
+  },
+  {
+    experienceTitle: "前輩指點方向",
+    experienceDescription: "新人工作中，前輩給了清楚建議，讓他更知道下一步怎麼做，經驗值 +20。",
+    moneyTitle: "新人獎勵",
+    moneyDescription: "他把基礎工作完成得很仔細，因此得到一筆小獎勵，金錢 +30。",
+  },
+  {
+    experienceTitle: "團隊肯定進步",
+    experienceDescription: "團隊發現他的判斷越來越成熟，也願意把更重要的任務交給他，經驗值 +20。",
+    moneyTitle: "專案小獎金",
+    moneyDescription: "這次任務成果不錯，團隊給他一筆小獎金，金錢 +30。",
+  },
+  {
+    experienceTitle: "助人得到回饋",
+    experienceDescription: "他把專業用來幫助別人，對方的感謝讓他更確定自己的使命，經驗值 +20。",
+    moneyTitle: "善意資源支持",
+    moneyDescription: "有人看見他的助人計畫，願意提供一點資源支持，金錢 +30。",
+  },
+];
+
 function makeCards(role: RoleSeed): Card[] {
   return role.stageSeeds.flatMap((stage, stageIndex) => {
     const contentStage = stageIndex + 1;
+    const positiveDestiny = positiveDestinyByStage[stageIndex];
     const chanceTasks = stage.chanceTasks.map((seed, index): Card => ({
       id: `${role.id}-chance-${contentStage}-${index + 1}`,
       characterId: role.id,
@@ -36,12 +64,12 @@ function makeCards(role: RoleSeed): Card[] {
       description: seed.description,
       resolutionMode: "choice",
       optionA: {
-        label: "先接賺錢任務",
+        label: "先存錢準備",
         effects: { experience: -20, money: 50 },
         resultDescription: seed.moneyResult,
       },
       optionB: {
-        label: "花錢加強學習",
+        label: "花錢投入學習",
         effects: { experience: 30, money: -50 },
         resultDescription: seed.studyResult,
       },
@@ -51,9 +79,9 @@ function makeCards(role: RoleSeed): Card[] {
       characterId: role.id,
       contentStage,
       type: "destiny",
-      title: seed.title,
-      description: seed.description,
-      effects: seed.effects,
+      title: index === 0 ? positiveDestiny.experienceTitle : seed.title,
+      description: index === 0 ? `${role.name}${positiveDestiny.experienceDescription}` : seed.description,
+      effects: index === 0 ? { experience: 20 } : seed.effects,
       resolutionMode: "automatic",
     }));
     const destinyMoney = stage.destinyMoney.map((seed, index): Card => ({
@@ -61,9 +89,9 @@ function makeCards(role: RoleSeed): Card[] {
       characterId: role.id,
       contentStage,
       type: "destiny",
-      title: seed.title,
-      description: seed.description,
-      effects: seed.effects,
+      title: index === 0 ? positiveDestiny.moneyTitle : seed.title,
+      description: index === 0 ? `${role.name}${positiveDestiny.moneyDescription}` : seed.description,
+      effects: index === 0 ? { money: 30 } : seed.effects,
       resolutionMode: "automatic",
     }));
     return [...chanceTasks, ...chanceChoices, ...destinyExperience, ...destinyMoney];

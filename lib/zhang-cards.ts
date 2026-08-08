@@ -40,20 +40,20 @@ export const zhangCards:Card[]=[
     "description": "你賺到第一筆錢了。可以買材料做更多商品，也可以先存起來，讓自己比較安心。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先存起來",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "先把第一筆錢存起來，金幣增加了，但這次少做一點商品練習。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "買材料練習",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "買材料做更多商品後，玉曼更懂得成本和品質。"
     }
   },
   {
@@ -65,20 +65,20 @@ export const zhangCards:Card[]=[
     "description": "老師教你把材料、時間和售價都算清楚，你發現做生意不能只靠感覺。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先幫忙顧攤賺錢",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "顧攤賺到一些金幣，但練習算成本的時間少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "買本成本練習簿",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "練習後，玉曼更知道售價不能只靠感覺。"
     }
   },
   {
@@ -86,10 +86,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 1,
     "type": "destiny",
-    "title": "材料買太多",
-    "description": "你太興奮，一次買了太多材料，結果有些用不完，只好低價賣掉。",
+    "title": "老師看見你的用心",
+    "description": "玉曼在企業家旅程中遇到一個剛剛好的幫助。還在學習階段，這次小小順利讓他更有信心。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -98,10 +98,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 1,
     "type": "destiny",
-    "title": "客人聽不懂商品介紹",
-    "description": "你講得太快，客人不知道商品好在哪裡，很多人看一看就離開了。",
+    "title": "小攤位賣得不錯",
+    "description": "玉曼原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -168,20 +168,20 @@ export const zhangCards:Card[]=[
     "description": "訂單變多了。你可以加快速度多賣一點，也可以慢慢做，確保品質穩定。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "加快速度多賣",
       "effects": {
         "experience": -20,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "多賣一些讓收入增加，但太趕讓品質練習少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "買工具穩定品質",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "有了更好的工具，玉曼更懂得穩穩做好商品。"
     }
   },
   {
@@ -193,20 +193,20 @@ export const zhangCards:Card[]=[
     "description": "客人覺得你們服務親切、商品也用心，在網路上留下很棒的評價。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先推出促銷活動",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "促銷帶來收入，但仔細回覆客人好評的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢學客服回覆",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "學會好好回覆後，玉曼更懂得珍惜客人的鼓勵。"
     }
   },
   {
@@ -214,10 +214,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 2,
     "type": "destiny",
-    "title": "隊友吵架了",
-    "description": "兩位隊友對包裝設計有不同想法，越講越大聲，工作進度變慢。",
+    "title": "客人給了好建議",
+    "description": "玉曼在企業家旅程中遇到一個剛剛好的幫助。作為新人，這次被提醒和肯定，讓他更知道下一步怎麼做。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -226,10 +226,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 2,
     "type": "destiny",
-    "title": "廠商臨時漲價",
-    "description": "原本說好的材料價格突然變貴，你只好多花錢才能完成訂單。",
+    "title": "收到小訂單",
+    "description": "玉曼原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -296,20 +296,20 @@ export const zhangCards:Card[]=[
     "description": "你有機會開第二家店。開新店可能賺更多，但也會更忙；先穩住可以把品質做好。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先開新店試試",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "新店帶來更多收入，但品質管理的練習暫時少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢改善原店",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "先把原本的店做好後，玉曼更懂得穩定經營。"
     }
   },
   {
@@ -321,20 +321,20 @@ export const zhangCards:Card[]=[
     "description": "你發現好的老闆不是只會賺錢，也要讓一起工作的人被尊重。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先追求更多業績",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "業績讓收入增加，但照顧員工的時間少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢辦員工訓練",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "員工訓練讓團隊更被尊重，玉曼也更像成熟老闆。"
     }
   },
   {
@@ -342,10 +342,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 3,
     "type": "destiny",
-    "title": "太多訂單做不完",
-    "description": "訂單暴增，但團隊人手不夠，大家累到出錯，客人開始抱怨。",
+    "title": "團隊合作變順了",
+    "description": "玉曼在企業家旅程中遇到一個剛剛好的幫助。在專業成長中，這次經驗讓他的判斷更成熟。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -354,10 +354,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 3,
     "type": "destiny",
-    "title": "別人做出類似商品",
-    "description": "別家公司推出很像的商品，而且價格更便宜，你的收入變少了。",
+    "title": "商品得到獎勵",
+    "description": "玉曼原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
@@ -424,20 +424,20 @@ export const zhangCards:Card[]=[
     "description": "你可以重新做一個更環保的商品，也可以先縮小公司，慢慢把品質做好。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先縮小公司存資源",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "縮小公司讓金幣比較穩，但研發環保商品的經驗少了一點。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "投入環保商品",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "做出更環保的商品後，玉曼更知道企業也能照顧世界。"
     }
   },
   {
@@ -449,20 +449,20 @@ export const zhangCards:Card[]=[
     "description": "你決定讓公司不只賺錢，也要幫助社區和需要的人。",
     "resolutionMode": "choice",
     "optionA": {
-      "label": "先接賺錢任務",
+      "label": "先接穩定訂單",
       "effects": {
         "experience": -30,
         "money": 50
       },
-      "resultDescription": "先把錢補起來，雖然少了一點練習時間，但旅程可以繼續前進。"
+      "resultDescription": "穩定訂單讓公司有收入，但幫助社區的行動少了一些。"
     },
     "optionB": {
-      "label": "花錢加強練習",
+      "label": "花錢做社區計畫",
       "effects": {
         "experience": 30,
         "money": -50
       },
-      "resultDescription": "願意投資自己，花一些錢換來更多經驗值。"
+      "resultDescription": "社區計畫讓更多人被幫助，玉曼也更確定公司可以成為祝福。"
     }
   },
   {
@@ -470,10 +470,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 4,
     "type": "destiny",
-    "title": "公司快沒錢了",
-    "description": "前面幾次錯誤決定讓公司花太多錢，現在帳戶快見底了。",
+    "title": "公司幫助了社區",
+    "description": "玉曼在企業家旅程中遇到一個剛剛好的幫助。成為專家後，這次助人的回饋讓他更確定自己的使命。經驗值 +20。",
     "effects": {
-      "experience": -20
+      "experience": 20
     },
     "resolutionMode": "automatic"
   },
@@ -482,10 +482,10 @@ export const zhangCards:Card[]=[
     "characterId": "zhang",
     "contentStage": 4,
     "type": "destiny",
-    "title": "合夥人不守信用",
-    "description": "原本一起合作的人沒有照約定做事，讓你和團隊很受傷。",
+    "title": "善意合作帶來資源",
+    "description": "玉曼原本只是認真完成眼前的小事，沒想到得到一筆小小支持，金錢 +30。",
     "effects": {
-      "money": -30
+      "money": 30
     },
     "resolutionMode": "automatic"
   },
