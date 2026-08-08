@@ -12,6 +12,8 @@ function clone<T>(value: T): T {
 }
 
 function normalizeCharacter(character: CharacterConfig): CharacterConfig {
+  const builtIn = defaultConfig.characters.find((item) => item.id === character.id);
+  const stageIntros = character.stageIntros?.length ? character.stageIntros : builtIn?.stageIntros || [];
   return {
     ...character,
     initial: {
@@ -19,6 +21,7 @@ function normalizeCharacter(character: CharacterConfig): CharacterConfig {
       money: Math.max(0, Number(character.initial?.money) || 0),
     },
     titles: [...(character.titles || [])].slice(0, 4),
+    stageIntros: stageIntros.slice(0, 4),
     milestones: [...(character.milestones || [])].slice(0, 4),
     cards: (character.cards || []).map((card) => ({ ...card, characterId: character.id })),
   };
@@ -45,6 +48,7 @@ function defaultPlayer(character: CharacterConfig | undefined, portraitId?: stri
     skipTurns: 0,
     finishedAt: null,
     decks: {},
+    stageIntroSeen: [],
   };
 }
 
@@ -74,6 +78,9 @@ export function normalizeGameState(input: unknown, config: GameConfig): GameStat
       skipTurns: Math.max(0, Number(current?.skipTurns ?? 0)),
       finishedAt: current?.finishedAt ?? null,
       decks: current?.decks || {},
+      stageIntroSeen: Array.isArray(current?.stageIntroSeen)
+        ? [...new Set(current.stageIntroSeen.map(Number).filter((stage) => stage >= 1 && stage <= 4))]
+        : [],
     };
   }
 

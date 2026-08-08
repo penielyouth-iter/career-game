@@ -1,441 +1,49 @@
-import type { Card } from "./types";
+import type { Card, Effects } from "./types";
+
+const auto=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,effects:Effects={},instruction?:string):Card=>({
+ id:`zoey-${type}-${stage}-${index}`,characterId:"zoey",contentStage:stage,type,title,description,effects,instruction,resolutionMode:"automatic"
+});
+const task=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,instruction:string,successEffects:Effects,failureEffects:Effects,successLabel="挑戰成功",failureLabel="挑戰失敗"):Card=>({
+ id:`zoey-${type}-${stage}-${index}`,characterId:"zoey",contentStage:stage,type,title,description,instruction,resolutionMode:"task",task:true,successEffects,failureEffects,successLabel,failureLabel
+});
+const choice=(stage:number,type:"chance"|"destiny",index:number,title:string,description:string,aLabel:string,aEffects:Effects,bLabel:string,bEffects:Effects):Card=>({
+ id:`zoey-${type}-${stage}-${index}`,characterId:"zoey",contentStage:stage,type,title,description,resolutionMode:"choice",optionA:{label:aLabel,effects:aEffects},optionB:{label:bLabel,effects:bEffects}
+});
 
 export const zoeyCards:Card[]=[
-  {
-    id: "zoey-chance-1-1",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "chance",
-    title: "第一次上台表現超好",
-    description: "你在歌唱比賽的舞台唱得很好，大家都注意到你，開始幫你加油！",
-    effects: {
-      experience: 60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-1-2",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "chance",
-    title: "自信動作大成功",
-    description: "比賽有加分題！評審請你做一段自信動作，讓大家看到你的舞台感。",
-    effects: {
-      experience: 60
-    },
-    instruction: "Zoey 帶組員擺出 3 個連續偶像姿勢，並帶全場喊：「請幫我加油！」",
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-1-3",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "chance",
-    title: "兩家公司都想找你",
-    description: "兩家公司都想邀請你加入。大公司資源多，但練習很嚴格；小公司比較自由，但資源比較少。",
-    resolutionMode: "choice",
-    optionA: {
-      label: "加入大公司",
-      effects: {
-        experience: -20,
-        money: 200
-      }
-    },
-    optionB: {
-      label: "加入小公司",
-      effects: {
-        experience: 40,
-        money: 50
-      }
-    }
-  },
-  {
-    id: "zoey-chance-1-4",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "chance",
-    title: "收到粉絲的鼓勵",
-    description: "粉絲寫信和送小禮物鼓勵你，讓你更想繼續唱歌和表演。",
-    effects: {
-      experience: 60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-1-1",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "destiny",
-    title: "合約裡有不公平的地方",
-    description: "你仔細看合約，才發現有些地方不太公平，只好花錢請懂法律的人幫忙看。",
-    effects: {
-      experience: -20,
-      money: -100
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-1-2",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "destiny",
-    title: "練舞時受傷",
-    description: "你為了把舞跳好，練習到很晚，結果不小心拉傷，只好暫停練習。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-1-3",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "destiny",
-    title: "被其他練習生冷落",
-    description: "因為你得到比較多表演機會，有些練習生不太理你，氣氛變得有點尷尬。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-1-4",
-    characterId: "zoey",
-    contentStage: 1,
-    type: "destiny",
-    title: "比賽時差點失敗",
-    description: "正式表演時你太緊張，高音沒有唱好，幸好觀眾支持你，才順利過關。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-2-1",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "chance",
-    title: "辛苦練習有成果",
-    description: "你努力練唱歌和跳舞，體力變好，舞台表現也進步很多，老師稱讚你。",
-    effects: {
-      experience: 60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-2-2",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "chance",
-    title: "音樂停了也不怕",
-    description: "直播節目中音樂突然停掉，你沒有慌張，繼續唱歌並帶動大家的氣氛。",
-    effects: {
-      experience: 60
-    },
-    instruction: "現場清唱任意一首歌 2 句，並指名一位玩家當伴舞跳 5 秒。",
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-2-3",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "chance",
-    title: "記者突然問難題",
-    description: "記者突然問你網路上的照片和傳聞，你可以選擇誠實說明，也可以簡單回答保護自己。",
-    resolutionMode: "choice",
-    optionA: {
-      label: "誠實回答",
-      effects: {
-        experience: 20
-      }
-    },
-    optionB: {
-      label: "簡單回答",
-      effects: {
-        experience: 20
-      }
-    }
-  },
-  {
-    id: "zoey-chance-2-4",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "chance",
-    title: "第一次拍廣告",
-    description: "因為你親切又有活力，接到第一次廣告工作，也賺到一些收入。",
-    effects: {
-      experience: 20,
-      money: 150
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-2-1",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "destiny",
-    title: "節目剪錯讓你被誤會",
-    description: "節目把畫面剪得很奇怪，讓大家誤會你沒禮貌，網路上很多人罵你。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-2-2",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "destiny",
-    title: "太累了身體受不了",
-    description: "你連續好幾個月睡太少、工作太多，在後台累到不舒服，只好去看醫生。",
-    effects: {
-      experience: -40,
-      money: -50
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-2-3",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "destiny",
-    title: "拍照工作突然被換掉",
-    description: "原本說好要拍雜誌照片，結果臨時換成別人，你準備了好久卻沒用上。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-2-4",
-    characterId: "zoey",
-    contentStage: 2,
-    type: "destiny",
-    title: "被太熱情的人打擾",
-    description: "有陌生人一直跟著你、拍你照片，讓你覺得不安全，只好花錢搬家和加強保護。",
-    effects: {
-      experience: -40,
-      money: -100
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-3-1",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "chance",
-    title: "第一張專輯大受歡迎",
-    description: "你的主打歌很多人喜歡聽，專輯也賣得很好，大家都開始認識你！",
-    effects: {
-      experience: 60,
-      money: 300
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-3-2",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "chance",
-    title: "開大型演唱會",
-    description: "演唱會來了好多觀眾！燈光亮起，你帶著大家一起唱你的熱門歌曲。",
-    effects: {
-      experience: 60,
-      money: 250
-    },
-    instruction: "起立擔任唱跳教練，自創 2 個動作帶領全場玩家跟著跳 15 秒！",
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-3-3",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "chance",
-    title: "自己試著寫歌",
-    description: "你想參與寫歌。自己負責很多歌曲可以學到更多，但會很辛苦；只參與一部分比較輕鬆。",
-    resolutionMode: "choice",
-    optionA: {
-      label: "負責很多歌曲",
-      effects: {
-        experience: 20
-      }
-    },
-    optionB: {
-      label: "只參與一部分",
-      effects: {
-        experience: 20
-      }
-    }
-  },
-  {
-    id: "zoey-chance-3-4",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "chance",
-    title: "得到音樂大獎",
-    description: "你站在台上拿到獎座，說出感謝的話，全場都為你鼓掌歡呼。",
-    effects: {
-      experience: 80
-    },
-    instruction: "對全場說 15 秒感謝的話，結束後全場玩家起立鼓掌 5 秒。",
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-3-1",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "destiny",
-    title: "演唱會設備壞掉",
-    description: "大型演唱會的設備突然出問題，表演延後了，團隊需要花錢退一些票給觀眾。",
-    effects: {
-      experience: -20,
-      money: -150
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-3-2",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "destiny",
-    title: "喉嚨受傷了",
-    description: "你連續唱太多場，喉嚨受傷，醫生說必須休息治療，不能繼續工作。",
-    effects: {
-      experience: -40,
-      money: -100
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-3-3",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "destiny",
-    title: "紅了以後被亂罵",
-    description: "你變有名之後，網路上出現很多不公平的批評，甚至有人亂傳沒有證據的話。",
-    effects: {
-      experience: -60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-3-4",
-    characterId: "zoey",
-    contentStage: 3,
-    type: "destiny",
-    title: "和團隊為了分錢吵架",
-    description: "工作成功後，你和工作團隊對怎麼分錢有不同想法，合作變得不開心。",
-    effects: {
-      experience: -20,
-      money: -100
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-4-1",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "chance",
-    title: "在教會找到平安",
-    description: "你心情低落時，朋友帶你去教會。唱詩歌和禱告時，你感受到被愛和接納。",
-    effects: {
-      experience: 100
-    },
-    instruction: "邀請全場閉眼深呼吸 5 秒，並由你對大家說：「願平安與你們同在！」",
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-4-2",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "chance",
-    title: "重新想想什麼最重要",
-    description: "你發現自己以前太在意掌聲和名氣。這次困難讓你停下來，想想生命中真正重要的是什麼。",
-    effects: {
-      experience: 60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-chance-4-3",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "chance",
-    title: "把難過寫成歌曲",
-    description: "你把低潮時的難過和希望寫成一首歌。你可以公開分享，也可以先留給自己。",
-    resolutionMode: "choice",
-    optionA: {
-      label: "公開分享",
-      effects: {
-        experience: 80
-      }
-    },
-    optionB: {
-      label: "先留給自己",
-      effects: {
-        experience: 60
-      }
-    }
-  },
-  {
-    id: "zoey-chance-4-4",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "chance",
-    title: "朋友和粉絲支持你",
-    description: "教會朋友和真正支持你的粉絲默默陪伴你，讓你知道就算沒有舞台，你還是被愛著。",
-    effects: {
-      experience: 60
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-4-1",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "destiny",
-    title: "被不是真的消息傷害",
-    description: "網路上突然出現很多不是真的消息，大家誤會你，讓你覺得很難過。",
-    effects: {
-      experience: -80
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-4-2",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "destiny",
-    title: "廣告工作被取消",
-    description: "因為這件事，原本合作的廣告被取消，還要付一筆錢。有些朋友也不敢靠近你。",
-    effects: {
-      experience: -40,
-      money: -200
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-4-3",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "destiny",
-    title: "被網路留言傷到",
-    description: "很多難聽的留言讓你很焦慮，也睡不好。你很需要休息，也需要有人陪伴和幫助。",
-    effects: {
-      experience: -100
-    },
-    resolutionMode: "automatic"
-  },
-  {
-    id: "zoey-destiny-4-4",
-    characterId: "zoey",
-    contentStage: 4,
-    type: "destiny",
-    title: "信任的人傷害你",
-    description: "你很信任的人把不好的消息傳出去，讓你受傷。這也讓你學習怎麼面對難過和原諒。",
-    effects: {
-      experience: -80
-    },
-    resolutionMode: "automatic"
-  }
+ auto(1,"chance",1,"社團唱歌課","Zoey 參加學校社團，老師教她用肚子呼吸，唱歌比以前更穩了。",{experience:40}),
+ auto(1,"chance",2,"基本舞步練習","她跟著節拍練基本舞步，雖然動作還不熟，但越來越敢動。",{experience:40}),
+ task(1,"chance",3,"舞台姿勢練習","社團練習時，Zoey 試著站穩、微笑，讓自己看起來更有精神。","Zoey 帶全組擺出 3 個舞台姿勢，最後一起喊：「我準備好了！」",{experience:50},{experience:-10},"練習成功","還有點害羞"),
+ choice(1,"chance",4,"請同學聽聽看","Zoey 練了一小段歌，可以請同學給建議，也可以先自己調整唱法。","請同學給建議",{experience:40},"自己調整唱法",{experience:30}),
+ auto(1,"destiny",1,"節拍一直跟不上","音樂速度有點快，Zoey 常常慢半拍，覺得自己是不是沒有天分。",{experience:-30}),
+ auto(1,"destiny",2,"唱太大聲喉嚨累","她太想唱好，一直用力唱，喉嚨變得不舒服。",{experience:-30}),
+ auto(1,"destiny",3,"忘記帶練習資料","社團練習時，她忘記帶歌詞和筆記，只能跟著別人看。",{experience:-20}),
+ task(1,"destiny",4,"練習時太緊張","社團練習時，Zoey 一想到要讓大家聽見，就緊張到聲音變小。","全組一起深呼吸 3 次，然後對 Zoey 說：「慢慢來，我們聽你唱！」",{experience:20},{experience:-40},"放鬆一點","還是太緊張"),
+
+ auto(2,"chance",1,"新人試鏡表現穩定","Zoey 在小型試鏡中表現穩定，評審看見她願意學習，給她練習生機會。",{experience:60,money:100}),
+ auto(2,"chance",2,"新人課程很扎實","公司安排唱歌、舞蹈和禮貌訓練，Zoey 更明白偶像工作不只是漂亮上台。",{experience:60}),
+ choice(2,"chance",3,"練習時間怎麼安排","每天都有很多課，Zoey 可以熬夜多練，也可以安排休息讓身體保持健康。","安排休息",{experience:50},"熬夜多練",{experience:30,money:-50}),
+ task(2,"chance",4,"新人自我介紹","新人見面會上，Zoey 要用清楚又有精神的方式介紹自己。","Zoey 用 15 秒介紹自己的名字、夢想和一個優點。",{experience:50,money:100},{experience:-20},"介紹清楚","聲音太小"),
+ auto(2,"destiny",1,"動作常被老師糾正","舞蹈老師一直提醒手的位置和腳步，Zoey 覺得自己怎麼都做不好。",{experience:-40}),
+ auto(2,"destiny",2,"和同伴比較心情低落","看到其他新人進步很快，Zoey 忍不住一直比較，心裡很難過。",{experience:-40}),
+ auto(2,"destiny",3,"新人收入不穩定","新人工作機會不穩定，交通和服裝準備花了不少錢。",{money:-100}),
+ task(2,"destiny",4,"團隊排練吵起來","大家對站位和動作有不同意見，排練氣氛變得緊張。","全組一起做一個同步動作，最後說：「我們一起完成！」",{experience:20},{experience:-50},"重新合作","氣氛更僵"),
+
+ auto(3,"chance",1,"找到自己的聲音","Zoey 更知道什麼歌適合自己，也能把感情唱進歌曲裡。",{experience:70,money:150}),
+ auto(3,"chance",2,"參與正式作品","她加入一首新歌的錄音和排練，感受到專業作品需要很多人一起完成。",{experience:70,money:200}),
+ choice(3,"chance",3,"要模仿流行還是做自己","公司建議她模仿最近流行的風格，但 Zoey 也想保留自己的特色。","保留自己的特色",{experience:70},"先學流行風格",{experience:40,money:150}),
+ task(3,"chance",4,"帶新人暖身","有新練習生加入，Zoey 試著帶大家做簡單暖身，幫助團隊進入狀態。","Zoey 帶全組做 10 秒簡單節奏拍手。",{experience:80,money:100},{experience:-20},"帶領成功","節奏不齊"),
+ auto(3,"destiny",1,"錄音一直重來","一句歌詞錄了很多次都不滿意，Zoey 又累又挫折。",{experience:-50}),
+ auto(3,"destiny",2,"表演前身體不舒服","重要表演前，她因為練太多而聲音沙啞，只好減少練習並休息。",{experience:-40,money:-100}),
+ auto(3,"destiny",3,"被網路比較","有人把她和其他歌手比較，留言讓她心情受影響。",{experience:-50}),
+ task(3,"destiny",4,"團隊壓力變大","正式作品快完成時，大家都很累，說話也變得急。","全組每人說一句可以鼓勵團隊的話。",{experience:20},{experience:-50},"互相鼓勵","壓力沒有降下來"),
+
+ auto(4,"chance",1,"用歌鼓勵孩子","Zoey 到兒童活動唱歌，孩子們跟著一起唱，她發現歌聲可以帶給人力量。",{experience:90,money:100}),
+ auto(4,"chance",2,"設計公益演出","她和團隊一起安排一場公益表演，把收入拿去幫助需要陪伴的家庭。",{experience:90,money:200}),
+ choice(4,"chance",3,"成名後要做什麼","Zoey 有更多影響力，可以只追求更多掌聲，也可以用舞台分享希望。","分享希望",{experience:100,money:100},"追求更多掌聲",{experience:40,money:300}),
+ task(4,"chance",4,"教大家勇敢表達","Zoey 開工作坊，鼓勵害羞的孩子用唱歌和動作說出自己的心情。","全組每人用一個動作表達今天的心情。",{experience:100,money:100},{experience:-30},"勇敢表達","還有點害羞"),
+ auto(4,"destiny",1,"太多人期待你完美","成為知名歌手後，大家希望 Zoey 每次都不能出錯，讓她壓力很大。",{experience:-60}),
+ auto(4,"destiny",2,"忙到忘記陪家人朋友","工作排得很滿，她發現自己很久沒有好好陪重要的人說話。",{experience:-50}),
+ task(4,"destiny",3,"被誤會時要溫柔回應","網路上有人誤會 Zoey 的話，她需要冷靜說明，不跟著生氣。","全組一起說：「先聽清楚，再好好說。」",{experience:30},{experience:-70},"溫柔回應","越說越亂"),
+ auto(4,"destiny",4,"忘記唱歌的初心","舞台越來越大，Zoey 差點忘記自己喜歡唱歌、也想鼓勵人的心。",{experience:-40})
 ];

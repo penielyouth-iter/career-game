@@ -69,3 +69,7 @@ npm run build
 npm run preview
 npm test
 ```
+
+## 內容設計文件
+
+新增職業角色、卡片與階段劇情時，請先參考 [角色內容生成規格](docs/ROLE_CONTENT_GUIDE.md)。

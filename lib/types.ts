@@ -3,7 +3,7 @@ export type Effects = Partial<Record<StatKey, number>>;
 export type ResolutionOption = { label: string; effects: Effects; resultDescription?:string };
 export type CharacterConfig = {
   id:string; name:string; job:string; instrument:string; icon:string; color:string;
-  titles:string[]; initial:Record<StatKey,number>; milestones:string[]; cards:Card[];
+  titles:string[]; stageIntros:string[]; initial:Record<StatKey,number>; milestones:string[]; cards:Card[];
 };
 export type Card = {
   id:string; characterId:string; contentStage:number; type:"chance"|"destiny";
@@ -19,7 +19,7 @@ export type BoardCell = {
 export type GameConfig = { title:string; story:string; characters:CharacterConfig[]; cells:BoardCell[] };
 export type PlayerState = {
   characterId:string; portraitId?:string; position:number; stage:number; stats:Record<StatKey,number>;
-  skipTurns:number; finishedAt:number|null; decks:Record<string,string[]>;
+  skipTurns:number; finishedAt:number|null; decks:Record<string,string[]>; stageIntroSeen:number[];
 };
 export type GameState = {
   started:boolean; turnOrder:string[]; turnIndex:number; round:number; accelerated:boolean;
